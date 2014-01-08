@@ -1,0 +1,4 @@
+diplom
+======
+
+diplom.loc
