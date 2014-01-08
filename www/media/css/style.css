@@ -1,0 +1,103 @@
+/* 
+    Document   : style
+    Created on : 21.12.2013, 16:23:07
+    Author     : Владик
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.row-fluid  div.colum-left {
+   position: fixed;
+  
+    background-image: url('/media/images/gray.jpg');
+    color: #fff;
+    width: 250px;
+    padding: 10px;
+    height: 100%;
+    
+}
+.row-fluid  div.colum-left li {
+    width: 100%;
+    list-style-type: none;
+    
+    border-bottom:1px solid #000; 
+}
+
+.row-fluid  div.colum-left li.active a{
+    background-color: #080808;
+    color:#fff;
+    
+}
+.row-fluid  div.colum-left li:hover,.row-fluid  div.colum-left li a:hover  {
+       background-color: #080808;
+       text-decoration: none;
+       color:#fff;
+    
+}
+.row-fluid  div.colum-left li a {
+    display: block;
+
+    color: #000;
+    padding: 10px 5px;
+    
+}
+
+.row-fluid  div.colum-left ul {
+    margin: 0;
+}
+
+.container-fluid {
+    padding-left:0;
+}
+
+.row-fluid {
+    min-width: 900px;
+    max-width: 1920px;
+}
+
+.row-fluid .span9 , div.colum-right {
+   margin: 0;
+ padding:10px 10px 10px 280px;
+}
+
+
+span.round {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  text-align: center;
+  background-color: red;
+  color: #fff;
+  margin-left: 8px;
+  border-radius: 2px; 
+} 
+
+.messages {
+    overflow: hidden;
+    margin: 0 0 10px 0;
+}
+
+.messages li{
+    display: block;
+    float: left;
+    width: 72px;
+    text-align: center;
+    height: 15px;
+    padding: 10px;
+    line-height: 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px 7px 0 0;
+    
+       
+}
+.messages li.active,.messages li.active a{
+    background-color: #000;
+    color: #fff;
+}
+
+.messages li a{
+    display: block;
+    text-decoration: none; 
+    
+}
