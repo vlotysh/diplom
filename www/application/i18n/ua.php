@@ -37,5 +37,7 @@ return array(
     'New_comments' => 'Ведіть коментар',
     'Remember' => 'Запам\'яти',
     'Messages' => 'Повідомлення',
+    
+     'Login_headering' => 'Ведь будь-ласка данні для входу на сайт:',
 );
 

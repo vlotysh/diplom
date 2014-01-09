@@ -6,40 +6,42 @@
         Purpose of the stylesheet follows.
 */
 
+/*
+/////////////////////////////////////////////////////
+///////////////////    ОСНОВНАЯ РАЗМЕТКА  //////////
+///////////////////////////////////////////////////
+*/
+
+
+
 .row-fluid  div.colum-left {
-   position: fixed;
-  
+    position: fixed;
     background-image: url('/media/images/gray.jpg');
     color: #fff;
-    width: 250px;
+    width: 180px;
     padding: 10px;
     height: 100%;
-    
 }
 .row-fluid  div.colum-left li {
     width: 100%;
     list-style-type: none;
-    
     border-bottom:1px solid #000; 
 }
 
 .row-fluid  div.colum-left li.active a{
     background-color: #080808;
     color:#fff;
-    
 }
 .row-fluid  div.colum-left li:hover,.row-fluid  div.colum-left li a:hover  {
-       background-color: #080808;
-       text-decoration: none;
-       color:#fff;
-    
+    background-color: #080808;
+    text-decoration: none;
+    color:#fff;
 }
 .row-fluid  div.colum-left li a {
     display: block;
-
     color: #000;
     padding: 10px 5px;
-    
+
 }
 
 .row-fluid  div.colum-left ul {
@@ -56,21 +58,32 @@
 }
 
 .row-fluid .span9 , div.colum-right {
-   margin: 0;
- padding:10px 10px 10px 280px;
+    margin-left: 200px;
+    padding:10px 10px 10px 20px;
+    position: relative;
 }
 
 
+/*
+/////////////////////////////////////////////////////
+///////////////////    Свойства странички пользователя  //////////
+///////////////////////////////////////////////////
+*/
+
+
+
+
+
 span.round {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  line-height: 14px;
-  text-align: center;
-  background-color: red;
-  color: #fff;
-  margin-left: 8px;
-  border-radius: 2px; 
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    background-color: red;
+    color: #fff;
+    margin-left: 8px;
+    border-radius: 2px; 
 } 
 
 .messages {
@@ -88,8 +101,6 @@ span.round {
     line-height: 15px;
     border: 1px solid #ccc;
     border-radius: 7px 7px 0 0;
-    
-       
 }
 .messages li.active,.messages li.active a{
     background-color: #000;
@@ -99,5 +110,44 @@ span.round {
 .messages li a{
     display: block;
     text-decoration: none; 
+}
+
+
+
+
+/*
+/////////////////////////////////////////////////////
+///////////////////    ПАНЕЛИ РЕГИСТРАЦИИ И ВХОДА!  //////////
+///////////////////////////////////////////////////
+*/
+
+
+.login_background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-image: url('/media/images/gray.jpg');
+}
+
+.login_box {
+  margin: 10% auto 0;
     
+    width: 360px;
+    padding: 15px;
+    text-align: center;
+    z-index: 1001;
+    background-color: #ccccff;
+    border-radius: 22px;
+    color: #002a80;
+}
+
+.login_box form {
+    margin: 0;
+}
+.login_box  input {
+    font-size: 16px;
+    height: 35px;
+    line-height: 16px;
+    padding: 5px 5px;
 }

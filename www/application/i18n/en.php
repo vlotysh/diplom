@@ -37,4 +37,7 @@ return array(
     'New_comments' => 'Enter your comment',
     'Remember' => 'Remember',
     'Messages' => 'Messages',
+    
+    
+    'Login_headering' => 'Please enter your login information below:'
 );

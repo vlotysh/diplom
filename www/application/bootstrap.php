@@ -165,7 +165,7 @@ I18n::lang($lang);
  */
 Kohana::modules(array(
 	 'auth'       => MODPATH.'auth',       // Basic authentication
-	'cache'      => MODPATH.'cache',      // Caching with multiple backends
+         'cache'      => MODPATH.'cache',      // Caching with multiple backends
 	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 	 'database'   => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
@@ -173,6 +173,7 @@ Kohana::modules(array(
          'pagination'=>MODPATH.'pagination',
 	// 'psql'        => MODPATH.'psql',        // PostgreSQL
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
+         'calendar'=>MODPATH.'calendar', // Calendar
 	 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	));
 
@@ -185,12 +186,19 @@ Kohana::modules(array(
 
 
 
+/*
+ * РОУТ авторизации
+ */
+
+
+
 Route::set('login', 'login')
 	->defaults(array(
 		'directory' => 'user',
 		'controller' => 'account',
 		'action'     => 'login',
 	));
+
 	
 Route::set('logout', 'logout')
 	->defaults(array(
@@ -206,8 +214,31 @@ Route::set('noaccess', 'noaccess')
 		'action'     => 'noaccess',
 	));
 	
-///
+/*
+ * РОУТ ПОЛЬЗОВАТЕЛЯ, ПРОФАЙЛ
+ */
 
+Route::set('profile', 'profile(/<action>(/<param>))')
+    ->defaults(array(
+        'directory' => 'user',
+        'controller' => 'profile',
+        'action' => 'index',
+        
+    ));
+
+Route::set('user', 'user<id>', array('id' => '[0-9]+'))
+    ->defaults(array(
+        'directory' => 'user',
+        'controller' => 'profile',
+        'action' => 'user',
+        
+    ));
+
+
+
+/*
+ * Языковые параметры и другие назначительные роуты
+ */
 
 Route::set('language', '<lg>', array('lg' => 'ru|ua|en'))
     ->defaults(array(
