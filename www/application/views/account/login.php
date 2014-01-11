@@ -1,6 +1,6 @@
 
     <div class="login_box">
-        <h1><?php echo __('Login'); ?></h1>
+        <h1><?php echo __('Login'); ?>(Вход)</h1>
         <?php if ($errors || $loginerrors) { ?>
             <p class="message">Some errors were encountered, please check the details you entered.</p>
             <p>
