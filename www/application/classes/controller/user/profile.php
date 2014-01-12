@@ -38,7 +38,7 @@ class Controller_User_Profile extends Controller_Application {
                 ->bind('massege',$massege)
                 ->bind('user_info',$user_info );
         
-        $user_info = $user_auth ->get_user();       
+        $user_info = $this->auth->get_user();       
         $massege = 'Пользователь с id '.$id;
        
         
