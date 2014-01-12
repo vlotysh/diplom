@@ -10,6 +10,7 @@ class Controller_User_Account extends Controller_Primary {
 		if (Auth::instance()->logged_in('participant')) 
                 {
 		  $this->request->redirect('account/private');
+                 
                 }
                 
              
@@ -48,6 +49,7 @@ class Controller_User_Account extends Controller_Primary {
 			$errors = $post->errors('user');
 		}
                 // display
+                
 		$this->template->title = __('Login');
 		$this->template->login_box = View::factory('account/login')
 			->bind('post', $post)

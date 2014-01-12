@@ -20,7 +20,9 @@ class Controller_Application extends Controller_Primary {
 	}
         
         public function debug($object, $die = 1) {
-            echo "<pre>";
+           echo "<p>Debug start from CONTROLLER <strong>".$this->request->controller()."</strong>, and ACTION <strong>".$this->request->action()."</strong></p>";
+        
+           echo "<pre>";
             print_r ($object);
             echo "<pre>";
             if($die == 1) {

@@ -36,7 +36,7 @@ return array(
     'No Recent Messages' => 'You don\'t have messages',
     'New_comments' => 'Enter your comment',
     'Remember' => 'Remember',
-    'Messages' => 'Messages',
+    'Mail' => 'Messages',
     
     
     'Login_headering' => 'Please enter your login information below:'

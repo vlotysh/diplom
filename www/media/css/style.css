@@ -63,6 +63,9 @@
     position: relative;
 }
 
+#account {
+    margin-bottom: 15px;
+}
 
 /*
 /////////////////////////////////////////////////////
@@ -86,39 +89,53 @@ span.round {
     border-radius: 2px; 
 } 
 
-.messages {
+/*
+///////////////////////////////////////////////////////////////
+///////////////////    Свойства странички сообщения  //////////
+//////////////////////////////////////////////////////////////
+*/
+
+
+.pm_section {
     overflow: hidden;
     margin: 0 0 10px 0;
+    border-bottom: 1px solid #ccc;
 }
 
-.messages li{
+.pm_section li{
     display: block;
     float: left;
-    width: 72px;
+    width: 122px;
     text-align: center;
     height: 15px;
     padding: 10px;
     line-height: 15px;
     border: 1px solid #ccc;
     border-radius: 7px 7px 0 0;
+    margin-bottom: -1px;
 }
-.messages li.active,.messages li.active a{
+.pm_section li.active,.pm_section li.active a{
     background-color: #000;
     color: #fff;
 }
 
-.messages li a{
+.pm_section li a{
     display: block;
     text-decoration: none; 
+   width: 122px;
+    
+     height: 15px;
 }
+
+
 
 
 
 
 /*
-/////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 ///////////////////    ПАНЕЛИ РЕГИСТРАЦИИ И ВХОДА!  //////////
-///////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 */
 
 

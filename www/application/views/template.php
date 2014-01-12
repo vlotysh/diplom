@@ -20,10 +20,10 @@
             <div class="row-fluid">
                 <div class="span3 colum-left">
                     <ul class="list-group">
-                        <li class="<?php echo $message_class_link_menu; ?>">
+                        <li class="<?= $mail_class_link_menu; ?>">
 
                             <a href="<?php echo url::site('mail'); ?>">  
-                                <?php echo __('Messages') ?> <? if ($msCount > 0): ?> <span class="round"><?= $msCount ?></span><? endif; ?>
+                                <?php echo __('Mail') ?> <? if ($msCount > 0): ?> <span class="round"><?= $msCount ?></span><? endif; ?>
                             </a>
                         </li>
 

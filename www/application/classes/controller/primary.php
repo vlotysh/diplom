@@ -3,10 +3,13 @@
 defined('SYSPATH') or die('No direct script access.');
 
 class Controller_Primary extends Controller_Template {
-
+    
+    private $user_auth;
+    
     public function before() {
 
         parent::before();
+        
         $this->auth = Auth::instance();
         $this->user = $this->auth->get_user();
 
@@ -31,9 +34,9 @@ class Controller_Primary extends Controller_Template {
         $this->pm = ORM::factory('pm');*/
 
         
+     
         $this->template->auth = Auth::instance();
-        
-        
+        $this->template->lang = I18n::lang();
         $this->template->content = '';
         $this->template->description = '';
         $this->template->title = '';
@@ -41,6 +44,7 @@ class Controller_Primary extends Controller_Template {
         $this->template->profile_class_link_menu = '';
         $this->template->admin_class_link_menu = '';
         $this->template->message_class_link_menu = '';
+        $this->template->mail_class_link_menu = '';
         $this->template->author = 'I am';
         $this->template->langg = '';
         $this->template->lang_class_link_menu = '';

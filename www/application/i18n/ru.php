@@ -36,7 +36,7 @@ return array(
     'No Recent Messages' => 'У вас нет cообщений',
      'New_comments' => 'Введите текст коментария',
      'Remember' => 'Запомнить',
-     'Messages' => 'Cообщения',
+     'Mail' => 'Cообщения',
     
      'Login_headering' => 'Введите пожалуйста данные для входа на сайт:',
 );

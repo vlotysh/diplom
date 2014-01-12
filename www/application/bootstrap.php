@@ -235,7 +235,18 @@ Route::set('user', 'user<id>', array('id' => '[0-9]+'))
     ));
 
 
+	
+/*
+ * РОУТ Cообщения
+ */
 
+Route::set('mail', 'mail')
+    ->defaults(array(
+        'directory' => 'user',
+        'controller' => 'mail',
+        'action' => 'index',
+        
+    ));
 /*
  * Языковые параметры и другие назначительные роуты
  */
