@@ -20,4 +20,4 @@
 <div id="load_pm" class="btn-info" offset="10"><!--Подаем смещение через атребут оffset, начинается с 10-->
 Загрузить еще
 </div>
-<div id="imgLoad" style="text-align: center; margin-top: 10px;"><img width="30" src="<?=  URL::base()?>media/images/495.gif"/></div>
+<div id="imgLoad" style="text-align: center; margin-top: 10px;"><img width="30" src="<?=URL::base()?>media/images/495.GIF"/></div>
