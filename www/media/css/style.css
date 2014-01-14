@@ -122,14 +122,79 @@ span.round {
 .pm_section li a{
     display: block;
     text-decoration: none; 
-   width: 122px;
-    
-     height: 15px;
+    width: 122px;
+
+    height: 15px;
+}
+
+.mail_cell {
+
+    overflow: hidden;
+    position: relative;
+
+    width: 98%;
+
+
+}
+
+.mail_cell p.test {
+    width: 30%;
+    height:20px;
+    vertical-align:middle;
+    display: table-cell;
+}
+
+.mail_cell tr {
+    border: 1px solid #ccc;
+    margin-bottom: -1px;
+    padding: 5px 10px;
+    border-radius: 10px; 
+}
+
+#load_pm {
+
+    width: 100px;
+    margin: 10px auto;
+    text-align: center;
+    padding: 5px 10px;
+    cursor: pointer;
 }
 
 
+.mail_cell .first {
+    width: 3%;
+
+    text-align: center;
+
+}
+
+.mail_cell .left_side {
+    width: 6%;
+    padding: 10px 0;
+    text-align: center;
+
+}
 
 
+.mail_cell .center {
+    width: 16%;
+    padding: 10px;
+    text-align: left;
+
+}
+
+.mail_cell .right_side {
+    width: 60%;
+    padding: 10px 20px;
+
+}
+
+.mail_cell table {
+    font-size: 14px;
+}
+.mail_cell table td {
+    vertical-align: middle;
+}
 
 
 /*
@@ -148,8 +213,8 @@ span.round {
 }
 
 .login_box {
-  margin: 10% auto 0;
-    
+    margin: 10% auto 0;
+
     width: 360px;
     padding: 15px;
     text-align: center;
