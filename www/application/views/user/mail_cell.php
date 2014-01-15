@@ -1,29 +1,17 @@
-   
-<tr>
-            <td class="first"><input type="checkbox" name="ms" value="1"></td>
+<?  foreach ($ms_data as $md):?>
+    <tr>
+            <td class="first"><input type="checkbox" name="ms" value="<?=$md['id']?>"></td>
             <td class="left_side"><img src="/1-1.jpg" width="50"/></td>
             <td  class="center">
-                <span>Гомер Джей Симпсон</span>
-                <span>Сегодня в 21.42</span>
+                <span><?=$md['fio'];?></span><br>
+                
+                <span><?= date("j. n. Y G:i:s",$md['date']);?></span>
             </td>
             <td  class="right_side">
-                <p class="ps_title">Cообщение</p>
-                    <div><a href="#">Lorem ipsum dolor sit amet, consectetur  sit amet, consectetur sit amet, consectetur adipisicing elit. Impedit, voluptatum, veniam, eaque, optio soluta consectetur illum sit amet</a></div>
+                <p class="ps_title"><?=$md['title']; ?></p>
+                    <div><a href="#"><?=  Text::limit_chars($md['content'],100); ?></a></div>
                  
             </td>
         </tr>
-        <tr>
-            <td class="first"><input type="checkbox" name="ms" value="1"></td>
-            <td class="left_side"><img src="/1-1.jpg" width="50"/></td>
-            <td  class="center">
-                <span>Гомер Джей Симпсон</span>
-                <span>Сегодня в 21.42</span>
-            </td>
-            <td  class="right_side">
-                <p class="ps_title">Cообщение</p>
-                <div><a href="#">Lorem ipsum dolor sit amet, consectetur  sit amet, consectetur sit amet, consectetur adipisicing elit. Impedit, voluptatum, veniam, eaque, optio soluta consectetur illum sit amet</a></div>
-                 
-            </td>
-        </tr>
-
-
+      
+<?  endforeach;?>

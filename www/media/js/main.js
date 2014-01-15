@@ -36,26 +36,38 @@ $("#load_pm").click(function() { // при нажатии кнопки доба�
     $("#imgLoad").show();
     
     var num = $(this).attr('offset');
-
+    var type = $(this).attr('type');
+    
     $.ajax({
         type: "POST",
         async: false,
         url: "/mail/",
         cache: false,
-        data: {"num": num},
+        data: {"num": num,"type": type},
         dataType: "json",
         success: function(res) {
-             if(res.count < 10) { //Если количество полученных сообщений меньше 10, значит следующая выборка не получится
+            if(res == null) {
+              
+              $("#load_pm").hide();
+                  $("#imgLoad").hide();
+                  $(".mail_cell").append('no masseges');
+                  return  false;
+             }
+             
+             if(res.count < $("#load_pm").attr('offset')) { //Если количество полученных сообщений меньше 10, значит следующая выборка не получится
                  //и надо скрывать получение данных
                  
-                  $(".mail_table").append(res.num);
+                  $(".mail_table tbody").append(res.num);
+                  $("#load_pm").hide();
                   $("#imgLoad").hide();
-             } else {
+                  
+             }
+            else {
              
                 $(".mail_table tbody").append(res.num);
                 var offset = parseInt($("#load_pm").attr("offset"));
                            
-                offset = offset + 10;
+                offset = offset + offset;
                 $("#load_pm").show();
                 $("#load_pm").attr('offset',offset);
                 

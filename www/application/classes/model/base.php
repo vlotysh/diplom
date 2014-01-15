@@ -16,14 +16,16 @@ class Model_Base extends Kohana_ORM {
      * 
      * @param type $users_id
      */
-    public function getUsersById($user_id) {
-        $query = DB::select('*')
+    public function getUsersById($user_id = '') {
+        $query = DB::select('user_info.id','user_info.user_id','user_info.fio')
                 ->from('users')
                 ->where('users.id', '=', $user_id)
                 ->join('user_info')
                 ->on('users.id', '=', 'user_info.user_id')
+                ->limit(1)
                 ->execute()
                 ->as_array();
+             
 
         if ($query)
             return $query;

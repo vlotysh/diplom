@@ -7,7 +7,7 @@ class Model_Mail extends Model_Base {
     protected $_table_name = 'mails';
     protected $_primary_key = 'id';
 
-    public function getAllOutInBoxPm($user_id = '', $limit = '', $action = 'inbox') {
+    public function getAllOutInBoxPm($user_id = '', $limit,$offset, $action = 'inbox') {
 
         if ($action == 'inbox') {
             $saider = 'sender_id'; //Параметр получателя при полученных
@@ -19,19 +19,26 @@ class Model_Mail extends Model_Base {
             $inboxOutbox = 'sender_id';
         }
 
-        $query = DB::select('*')
+        $query = DB::select('mails.id','mails.title','mails.sender_id','mails.recipient_id','mails.sinopsis','mails.content','mails.read','mails.date','user_info.fio')
                 ->from('mails')
-                ->join('users')
-                ->on('mails.' . $saider, ' = ', 'users.user_id')
-                ->where('pms' . $inboxOutbox, '=', $user_id)
+                ->order_by('mails.date', 'DESC')
+                ->join('user_info')
+                ->on('mails.' . $saider, ' = ', 'user_info.user_id')
+                
+                ->where('mails.'. $inboxOutbox, '=', $user_id)
+                
+                ->offset($offset)
+                    
                 ->limit($limit)
-                ->offset(10)
-                ->execute();
+                ->execute()
+                ->as_array();
+          
 
 
 
         if ($query)
             return $query;
+        else return FALSE;
     }
 
     public function getOnPm($id = '') {
@@ -44,6 +51,7 @@ class Model_Mail extends Model_Base {
                 ->on('pms.' . $saider, ' = ', 'user_info.user_id')
                 ->where('pms.id', '=', $id)
                 ->execute();
+        
 
 
 
