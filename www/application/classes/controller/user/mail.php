@@ -24,18 +24,14 @@ class Controller_User_Mail extends Controller_Application {
            $inbox = 'active'; 
             $type = 'inbox';
         }
-        
-          if($this->request->is_ajax()){ 
+       
+        if($this->request->is_ajax()){ 
             
         $num = $this->request->post('num'); 
         $type = $this->request->post('type'); 
         
         }
-        
-        
-       
-       
-      
+           
        $user = $this->auth->get_user();
        
        
@@ -48,12 +44,14 @@ class Controller_User_Mail extends Controller_Application {
 
        $flag  = count($ms_data) < $limit ? 0 : 1; //Если записей меньше чем показывает выборка 
        //то тогда не показывать кнопку "Загрузить еще"
-       
-       
-          if ($ms_data != '')  {
+     
+          if ($ms_data != '' and count($ms_data) != 0)  {
        $pms = View::factory('user/mail_cell')
                 ->bind('ms_data',$ms_data)
+                ->bind('count', $value)
                 ->render();
+          } else {
+              $pms = 'Сообщения отсутствуют';
           }
           
       
