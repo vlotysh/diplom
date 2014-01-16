@@ -7,12 +7,13 @@ class Controller_User_Profile extends Controller_Application {
     public function before() {
         parent::before();
        
-        $this->template->profile_class_link_menu = 'active';
+       
     }
 
 
     public function action_index(){
-       
+        
+        $this->template->profile_class_link_menu = 'active';
         
         $this->template->title =  'Страничка пользователя';
          $this->template->content = Auth::instance()->get_user()->id;
@@ -34,9 +35,24 @@ class Controller_User_Profile extends Controller_Application {
       
         $id = $this->request->param('id');
         
+        
+        if( $this->auth->get_user()->id == $id ) {
+            $url = URL::base().'/profile';
+            $this->request->redirect($url);
+        }
+        
+        $id_carent = $this->auth->get_user()->id;
+        $massege_form = View::factory('user/mail_form')
+                ->bind('recipient_id',$id)
+                ->bind('sender_id',$id_carent)
+  
+                ->render();
+
+     
         $user_page = View::factory('user/user')
                 ->bind('massege',$massege)
-                ->bind('user_info',$user_info );
+                ->bind('user_info',$user_info )
+                ->bind('massege_form',$massege_form);
         
         $user_info = $this->auth->get_user();       
         $massege = 'Пользователь с id '.$id;

@@ -1,7 +1,7 @@
 
 $("#send").click(function() { // при нажатии кнопки добавления новой статьи
     console.log('Все ок!');
-    var postData = getData('.modal-body');
+    var postData = getData('.ms_block');
     $('#text').html('Началось!');
     $('.ms_block').hide();
     $('.modal-footer').hide();
@@ -10,7 +10,7 @@ $("#send").click(function() { // при нажатии кнопки добавл
     $.ajax({
         type: "POST",
         async: false,
-        url: "/profile/addpm",
+        url: "/mail/send",
         data: postData,
         dataType: "json",
         success: function(result) {

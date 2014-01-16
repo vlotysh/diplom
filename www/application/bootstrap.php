@@ -247,6 +247,22 @@ Route::set('mail', 'mail')
         'action' => 'index',
         
     ));
+
+Route::set('view', 'mail/view(/<massege_id>)')
+    ->defaults(array(
+        'directory' => 'user',
+        'controller' => 'mail',
+        'action' => 'view',
+        
+    ));
+
+Route::set('send', 'mail/send')
+    ->defaults(array(
+        'directory' => 'user',
+        'controller' => 'mail',
+        'action' => 'send',
+        
+    ));
 /*
  * Языковые параметры и другие назначительные роуты
  */

@@ -27,10 +27,13 @@ class Model_Base extends Kohana_ORM {
                 ->as_array();
              
 
-        if ($query)
+        if ($query) {
+            $query = $query[0];
             return $query;
-        else
-            return array();
+        } else  {
+            return FALSE;
+            
+        }           
     }
 
 }

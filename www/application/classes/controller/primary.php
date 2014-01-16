@@ -32,7 +32,7 @@ class Controller_Primary extends Controller_Template {
         //Модели 
      /*   $this->massege_model = ORM::factory('message');
         $this->pm = ORM::factory('pm');*/
-
+         $this->MailModel = ORM::factory('mail');
         
      
         $this->template->auth = Auth::instance();
@@ -66,6 +66,12 @@ class Controller_Primary extends Controller_Template {
             'prefixfree.min',
                 //'less-1.2.1.min'
         );
+        
+        
+        //Cлужебные данные 
+        
+        $this->template->сarentController = $this->request->controller();
+        $this->template->сarentAction = $this->request->action();
     }
 
 }

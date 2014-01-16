@@ -19,7 +19,7 @@ class Model_Mail extends Model_Base {
             $inboxOutbox = 'sender_id';
         }
 
-        $query = DB::select('mails.id','mails.title','mails.sender_id','mails.recipient_id','mails.sinopsis','mails.content','mails.read','mails.date','user_info.fio')
+        $query = DB::select('mails.id','mails.title','mails.sender_id','mails.recipient_id','mails.sinopsis','mails.content','mails.read','mails.date','user_info.fio','user_info.user_id')
                 ->from('mails')
                 ->order_by('mails.date', 'DESC')
                 ->join('user_info')
@@ -42,20 +42,21 @@ class Model_Mail extends Model_Base {
     }
 
     public function getOnPm($id = '') {
-        $saider = 'recipient_id';
+       
 
 
-        $query = DB::select('pms.id', 'pms.title', 'pms.sender_id', 'pms.recipient_id', 'pms.content', 'pms.date', 'pms.read', 'users.username')
-                ->from('pms')
-                ->join('users')
-                ->on('pms.' . $saider, ' = ', 'user_info.user_id')
-                ->where('pms.id', '=', $id)
-                ->execute();
+        $query = DB::select('*')
+                ->from('mails')
+                ->where('id', '=', $id)
+                ->execute()
+                ->as_array();
         
 
 
 
         if ($query)
+            
+            $query = $query[0];
             return $query;
     }
 

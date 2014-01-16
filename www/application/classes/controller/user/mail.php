@@ -16,7 +16,7 @@ class Controller_User_Mail extends Controller_Application {
         $section = $this->request->query('section');
         $num = 0;
       
-        $user = Auth::instance()->get_user()->id;
+        $user = $this->auth->get_user()->id;
         if ($section != '') {
             $outbox = 'active';
             $type = 'outbox';
@@ -33,10 +33,10 @@ class Controller_User_Mail extends Controller_Application {
         }
         
         
-       $MailModel = ORM::factory('mail');
+       
        
       
-       $user = Auth::instance()->get_user();
+       $user = $this->auth->get_user();
        
        
        //Инициализация параметров динамической загрузки
@@ -44,15 +44,19 @@ class Controller_User_Mail extends Controller_Application {
        $limit = 3;
        $offset = $num;
      
-       $ms_data =  $MailModel->getAllOutInBoxPm($user->id,$limit,$offset,$type);
+       $ms_data =  $this->MailModel->getAllOutInBoxPm($user->id,$limit,$offset,$type);
 
        $flag  = count($ms_data) < $limit ? 0 : 1; //Если записей меньше чем показывает выборка 
        //то тогда не показывать кнопку "Загрузить еще"
+       
+       
           if ($ms_data != '')  {
        $pms = View::factory('user/mail_cell')
                 ->bind('ms_data',$ms_data)
                 ->render();
           }
+          
+      
        if($this->request->is_ajax()){ 
                     $res = array();
               
@@ -84,5 +88,93 @@ class Controller_User_Mail extends Controller_Application {
         $this->template->content = $mail_inbox;
                 
     }
+    
+    /*Просмотр сообщений!*/
+     public function action_view() {
+         
+         $massege_id = $this->request->param('massege_id');
+         
+         $massege = $this->MailModel->getOnPm($massege_id);
+      
+         
+         $massege['sender_info'] = $this->MailModel->getUsersById($massege['sender_id']);
+         $massege['recipient_info'] = $this->MailModel->getUsersById($massege['recipient_id']);
+       
+         if($this->auth->get_user()->id == $massege['recipient_info']['user_id']) {
+             
+             ORM::factory('mail',$massege_id)->set('read', 1)->save();
+         }
+         
+         
+         $sendForm = View::factory('user/mail_form')
+                 ->bind('sender_id',$massege['sender_info']['user_id'])
+                 ->bind('recipient_id',$massege['recipient_info']['user_id'])
+                 ->render();
+         
+         $content_ms = View::factory('user/view_mail')
+                 ->bind('sendForm',$sendForm)
+                 ->bind('massege',$massege);
+         
+         $this->template->content = $content_ms;
+         // echo $massege['id']; exit();
+    
+         
+     }
+     
+     
+         /*Отправка сообщений сообщений!*/
+     public function action_send() {
+         if (Request::initial()->is_ajax()) {
 
+            sleep(2);
+            $post = Validation::factory($_POST);
+            $post->rule('title', 'max_length', array(':value', 40))
+                    ->rule('content', 'not_empty');
+            if ($post->check()) {
+                //  $result = array('code'=>'yES!!!');
+//             /   $title = $this->request->POST('title');
+                $user_id = Auth::instance()->get_user()->id;
+                
+                
+                $mail = Arr::extract($_POST, array('title', 'content', 'user_id'), 'Не установлено');
+                
+                $mail['sinopsis'] = Text::limit_chars($mail['content'], 100);
+                
+                if($mail['user_id'] == $user_id) {
+                     $sender = $mail['user_id'];
+                    $recipient = $user_id;
+                } else {
+                   
+                    $sender = $user_id;
+                    $recipient = $mail['user_id'];
+                }
+                
+               $pm = $this->MailModel
+                        ->set('title',$mail['title'])
+                        ->set('sender_id',$sender)
+                        ->set('recipient_id',$recipient)
+                        ->set('sinopsis',$mail['sinopsis'])
+                        ->set('content',$mail['content'])
+                        ->set('date', time())
+                        ->save();
+
+
+
+                if ($pm) {
+                    $result['code'] = 'YES!';
+                    $result['title'] = $mail['title'];
+                } else {
+                    $result['code'] = 'NO';
+                }
+            } else {
+                $result['code'] = 'no CONTENT';
+            }
+
+            echo json_encode($result);
+            exit();
+        }
+    
+         
+     }
+        
 }
