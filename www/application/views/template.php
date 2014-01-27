@@ -23,7 +23,7 @@
                         <li class="<?= $mail_class_link_menu; ?>">
 
                             <a href="<?php echo url::site('mail'); ?>">  
-                                <?php echo __('Mail') ?> <? if ($msCount > 0): ?> <span class="round"><?= $msCount ?></span><? endif; ?>
+                                <?php echo __('Mail') ?> <? if ($msCount > 0): ?> <span class="badge badge-important"><?= $msCount ?></span><? endif; ?>
                             </a>
                         </li>
 

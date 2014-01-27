@@ -18,7 +18,7 @@
     position: fixed;
     background-image: url('/media/images/gray.jpg');
     color: #fff;
-    width: 180px;
+    width: 10%;
     padding: 10px;
     height: 100%;
 }
@@ -58,9 +58,10 @@
 }
 
 .row-fluid .span9 , div.colum-right {
-    margin-left: 200px;
+    margin-left: 12%;
     padding:10px 10px 10px 20px;
     position: relative;
+    width: 86%;
 }
 
 #account {
@@ -205,6 +206,10 @@ span.round {
     vertical-align: middle;
 }
 
+.mail_cell table tr:hover {
+    background-color:   rgba(178, 196, 181, 0.6);
+
+}
 
 /*
 //////////////////////////////////////////////////////////////

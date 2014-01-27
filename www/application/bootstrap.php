@@ -263,6 +263,28 @@ Route::set('send', 'mail/send')
         'action' => 'send',
         
     ));
+
+
+/*
+ * Файлы, картинки и тд
+ */
+
+Route::set('file', 'file(/<id>)',array('id' => '[0-9]+'))
+    ->defaults(array(
+        'directory' => 'user',
+        'controller' => 'file',
+        'action' => 'view',
+        
+    ));
+Route::set('file_upload', 'files/upload')
+    ->defaults(array(
+        'directory' => 'user',
+        'controller' => 'file',
+        'action' => 'upload',
+        
+    ));
+
+
 /*
  * Языковые параметры и другие назначительные роуты
  */

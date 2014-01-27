@@ -85,7 +85,7 @@ $("#load_pm").click(function() { // при нажатии кнопки доба�
 function getData(obj_form) {
     var hData = {};
 
-    $('input, textarea, select, hidden').each(function() {
+    $('input, textarea, hidden').each(function() {
         if (this.name && this.name != '') {
             hData[this.name] = this.value;
             console.log('hData[' + this.name + ']=' + hData[this.name]);
