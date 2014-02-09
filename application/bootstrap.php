@@ -175,6 +175,7 @@ Kohana::modules(array(
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
          'calendar'=>MODPATH.'calendar', // Calendar
 	 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+         'profilertoolbar'=> MODPATH.'profilertoolbar',
 	));
 
 /**

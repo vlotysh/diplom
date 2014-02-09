@@ -23,12 +23,7 @@ class Controller_User_Account extends Controller_Primary {
 			->rule('username', 'not_empty')
 			->rule('password', 'not_empty')
 			->rule('password', 'min_length', array(':value', 3));
-                        if(isset($post['remember'])) {
-                            $remember = TRUE;
-                            
-                        } else {
-                            $remember = FALSE;
-                        }
+                        $remember = TRUE;
 		
 			// if the form is valid and the username and password matches
 			if ($post->check() && Auth::instance()->login($post['username'], $post['password'],$remember))

@@ -80,7 +80,37 @@ $("#load_pm").click(function() { // при нажатии кнопки доба�
 });
 
 
+ /*$(".nav li a").click(function(e) {
+    e.preventDefault(e);
+  var pName;
+  var Obj = $(this);
+  $(".nav li").removeClass('active')
+  pName = $(this).attr("href");
+  
 
+ 
+  $('.cont').fadeOut("slow", function () {
+        $.ajax({
+        type: "POST",
+        async: false,
+        url: pName,
+        data: {"pName": pName},
+        dataType: "json",
+        cache: false,
+        success: function(res) {
+           
+            $("a[href="+pName+']').parent().addClass('active');
+             
+             $('.cont').fadeIn("slow");
+             $('.cont').html(res.content);
+        }})
+  });
+
+ 
+})
+
+
+*/
 
 function getData(obj_form) {
     var hData = {};

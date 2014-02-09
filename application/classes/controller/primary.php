@@ -52,17 +52,21 @@ class Controller_Primary extends Controller_Template {
         $this->template->msCount = 0;
 
         $this->template->styles = array(
-            'bootstrap.min',
+             'bootstrap.min',
             'bootstrap-responsive.min',
-            'style'
+            'style',
+            'bootstrap',
+            'dashboard',
+            'bootstrap-responsive.min',
         );
 
         $this->template->scripts = array(
-            'jquery',
-            'bootstrap.min',
+           'jquery',
+           
             'jquery.alphanumeric.min',
             'jquery.password.sm.min',
             'main',
+            'angular',
             'prefixfree.min',
                 //'less-1.2.1.min'
         );

@@ -21,12 +21,12 @@
 
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span3 colum-left">
-                    <ul class="list-group">
+                 <div class="col-sm-3 col-md-2 sidebar">
+                     <ul class="nav nav-pills nav-stacked">
                         <li class="<?php echo $mail_class_link_menu; ?>">
 
                             <a href="<?php echo url::site('mail'); ?>">  
-                                <?php echo __('Mail') ?> <?php if ($msCount > 0): ?> <span class="badge badge-important"><?php echo $msCount ?></span><?php endif; ?>
+                                <?php echo __('Mail') ?> <?php if ($msCount > 0): ?> <span class="badge pull-right"><?php echo $msCount ?></span><?php endif; ?>
                             </a>
                         </li>
 
@@ -39,18 +39,18 @@
 
                     </ul>
 
-                    <ul class="nav" style="float:right">
+                    <ul class="nav nav-pills nav-stacked" style="float:right">
                         <?php foreach (Kohana::$config->load('ko32example.language') as $lg) { ?>
                             <li class="<?php if ($lg == I18n::lang()) echo 'active'; ?>"><?php echo HTML::anchor('/' . $lg, __($lg)); ?></li>
                         <?php } ?>
                     </ul>
 
                 </div>
-                <div class="span9 colum-right">
+               <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     
                     <?php echo View::factory('common/header')->render(); ?>
-                    <div class="main">
-                        <?php echo $content; ?>
+                    <div class="cont">
+                    <?= $content; ?>
                     </div>
                 </div>
 
@@ -58,7 +58,11 @@
         </div>
          <?php  endif;?>   
         <div class="push"><!--//--></div>
-
+        
+         <?php if ($auth->logged_in('admin')): ?>
+<?php ProfilerToolbar::render(true); ?>
+        
+        <?php endif;?>
         <?php foreach ($scripts as $script) : ?>
             <script src="<?php echo url::base(); ?>media/js/<?php echo $script; ?>.js" /></script>
     <?php endforeach; ?>    

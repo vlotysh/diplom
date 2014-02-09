@@ -20,16 +20,15 @@
         <?php } ?>
         <?php echo Form::open(); ?>
 
-        <?php echo Form::label('username') ?>
-        <?php echo Form::input('username'); ?>
+       <p> <?php echo Form::label('username') ?>
+        <?php echo Form::input('username','',array('class' => 'sock_depend')); ?></p>
 
-        <?php echo Form::label('password') ?>
-        <?php echo Form::password('password'); ?>
-        <br>
-        <? echo __('Remember') ?>
-        <?php echo Form::checkbox('remember', 1); ?>
-        <br>
-        <?php echo Form::submit('submit', 'Login'); ?>
+        <p><?php echo Form::label('password') ?>
+        <?php echo Form::password('password'); ?></p>
+        
+     
+     <p>
+        <?php echo Form::submit('submit', 'Login'); ?></p>
 
 <?php echo Form::close(); ?>
     </div>
