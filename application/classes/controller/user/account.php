@@ -7,9 +7,10 @@ class Controller_User_Account extends Controller_Primary {
     public function action_login()
     {
 		// user already logged in, redirect to dashboard
-		if (Auth::instance()->logged_in('participant')) 
+		if (Auth::instance()->logged_in()) 
                 {
-		  $this->request->redirect('account/private');
+                    $url = URL::base();
+		  $this->request->redirect($url);
                  
                 }
 				

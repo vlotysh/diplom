@@ -23,7 +23,7 @@
        <p> 
         <?php echo Form::input('username','',array('class' => 'form-control','placeholder'=>'Login')); ?></p>
 
-        <p>
+     
         <?php echo Form::password('password','',array('class' => 'form-control','placeholder'=>'Password')); ?></p>
         
      
@@ -31,4 +31,6 @@
         <?php echo Form::submit('submit', 'Login',array('class'=> 'btn btn-lg btn-primary btn-block')); ?></p>
 
 <?php echo Form::close(); ?>
+     
+     
     </div>
