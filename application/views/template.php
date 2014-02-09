@@ -46,7 +46,7 @@
                     </ul>
 
                 </div>
-               <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-3 main">
+               <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
                     
                     <?php echo View::factory('common/header')->render(); ?>
                     <div class="cont">
