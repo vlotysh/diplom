@@ -19,9 +19,9 @@
             <div class="login_background"><?php echo$login_box?></div>
         <?php else:?>
 
-        <div class="container-fluid">
-            <div class="row-fluid">
-                 <div class="col-sm-3 col-md-2 sidebar">
+   <div class="container-fluid">
+            <div class="row">
+                 <div class="col-sm-3 col-md-3 sidebar">
                      <ul class="nav nav-pills nav-stacked">
                         <li class="<?php echo $mail_class_link_menu; ?>">
 
@@ -46,7 +46,7 @@
                     </ul>
 
                 </div>
-               <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+               <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-3 main">
                     
                     <?php echo View::factory('common/header')->render(); ?>
                     <div class="cont">
