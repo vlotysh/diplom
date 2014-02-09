@@ -1,5 +1,5 @@
 
-    <div class="login_box">
+    <div class="login_box well">
         <h1><?php echo __('Login'); ?></h1>
         <?php if ($errors || $loginerrors) { ?>
             <p class="message">Some errors were encountered, please check the details you entered.</p>
@@ -18,17 +18,17 @@
         <?php } else { ?>
             <p><?=__('Login_headering')?></p>
         <?php } ?>
-        <?php echo Form::open(); ?>
+        <?php echo Form::open('',array('class'=> 'form-signin')); ?>
 
-       <p> <?php echo Form::label('username') ?>
-        <?php echo Form::input('username','',array('class' => 'sock_depend')); ?></p>
+       <p> 
+        <?php echo Form::input('username','',array('class' => 'form-control','placeholder'=>'Login')); ?></p>
 
-        <p><?php echo Form::label('password') ?>
-        <?php echo Form::password('password'); ?></p>
+        <p>
+        <?php echo Form::password('password','',array('class' => 'form-control','placeholder'=>'Password')); ?></p>
         
      
      <p>
-        <?php echo Form::submit('submit', 'Login'); ?></p>
+        <?php echo Form::submit('submit', 'Login',array('class'=> 'btn btn-lg btn-primary btn-block')); ?></p>
 
 <?php echo Form::close(); ?>
     </div>

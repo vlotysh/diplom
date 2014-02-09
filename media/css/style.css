@@ -81,7 +81,9 @@ Purpose of the stylesheet follows.
 .nav li, .nav-pills li , .nav-stacked li {
     width: 90%;
 }
-
+.sidebar .nav li.active a{
+    background-color: #faa732;
+}
 
 span.round {
     display: inline-block;
