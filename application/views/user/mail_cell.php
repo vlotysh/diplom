@@ -1,5 +1,5 @@
-<?  foreach ($ms_data as $md):?>
-<tr <?if($md['read'] == 0):?> class="alert" <?endif;?>>
+<?php  foreach ($ms_data as $md):?>
+<tr <?php if($md['read'] == 0):?> class="alert" <?php endif;?>>
        
             <td class="first"><input type="checkbox" name="ms" value="<?=$md['id']?>"></td>
             <td class="left_side"><img src="/media/images/anonimus.jpg" width="50"/></td>
@@ -15,4 +15,4 @@
             </td>
         </tr>
       
-<?  endforeach;?>
+<?php  endforeach;?>
