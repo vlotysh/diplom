@@ -108,6 +108,7 @@ span.round {
     overflow: hidden;
     margin: 0 0 10px 0;
     border-bottom: 1px solid #ccc;
+    padding: 0;
 }
 
 .pm_section li{
@@ -115,7 +116,7 @@ span.round {
     float: left;
     width: 122px;
     text-align: center;
-    height: 15px;
+    height: 35px;
     padding: 10px;
     line-height: 15px;
     border: 1px solid #ccc;
@@ -128,7 +129,7 @@ span.round {
 }
 
 .pm_section li a{
-    display: block;
+    
     text-decoration: none;
     width: 122px;
 
