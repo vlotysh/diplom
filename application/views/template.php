@@ -41,7 +41,9 @@
 
                     <ul class="nav nav-pills nav-stacked" style="float:right">
                         <?php foreach (Kohana::$config->load('ko32example.language') as $lg) { ?>
-                            <li class="<?php if ($lg == I18n::lang()) echo 'active'; ?>"><?php echo HTML::anchor('/' . $lg, __($lg)); ?></li>
+                            <li class="<?php if ($lg == I18n::lang()) echo 'active'; ?>">
+                                
+                                <a href="/<?php echo $lg?>"><img width="20" src="<?php echo $srcImage.'lg/'.$lg.'.gif'?>"></a></li>
                         <?php } ?>
                     </ul>
 

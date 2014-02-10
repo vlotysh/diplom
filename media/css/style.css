@@ -85,6 +85,10 @@ Purpose of the stylesheet follows.
     background-color: #faa732;
 }
 
+.sidebar .nav li a:hover{
+    background-color: #faa732;
+}
+
 span.round {
     display: inline-block;
     width: 14px;
@@ -117,24 +121,32 @@ span.round {
     width: 122px;
     text-align: center;
     height: 35px;
-    padding: 10px;
+    position: relative;
     line-height: 15px;
     border: 1px solid #ccc;
     border-radius: 7px 7px 0 0;
     margin-bottom: -1px;
 }
+
+.pm_section li > a {
+     border-radius: 7px 7px 0 0;
+    display: block;
+    padding: 10px;
+    vertical-align: middle;
+    height: 100%;
+   
+}
+
+.pm_section li > a:hover {
+    text-decoration: none;
+}
+
 .pm_section li.active,.pm_section li.active a{
-    background-color: #000;
+    background-color: #faa732;
     color: #fff;
 }
 
-.pm_section li a{
-    
-    text-decoration: none;
-    width: 122px;
 
-    height: 15px;
-}
 
 .mail_cell {
 
@@ -161,23 +173,24 @@ span.round {
 }
 
 #load_pm {
-
-    width: 100px;
+    background-color: #FAA732;
+    color:#4C6F64;
+    width: 140px;
     margin: 10px auto;
     text-align: center;
     padding: 5px 10px;
     cursor: pointer;
-     border-image: none;
+    border-image: none;
     border-radius: 4px;
     border-style: solid;
     border-width: 1px;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 #load_pm:hover {
-    color: #FFFFFF;
+   
     transition: all 0.2s linear;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-image: -moz-linear-gradient(center top , #0044CC, #0088CC);
+    background-image: -moz-linear-gradient(center top , #ED8D07, #E2B06A);
 }
 .mail_cell .first {
     width: 3%;

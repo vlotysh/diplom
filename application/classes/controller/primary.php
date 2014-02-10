@@ -50,6 +50,11 @@ class Controller_Primary extends Controller_Template {
         $this->template->lang_class_link_menu = '';
         $this->template->page_name = NULL;
         $this->template->msCount = 0;
+        
+        //Роуты для картинок и тд
+        $this->template->srcImage = URL::base().'media/images/';
+        $this->template->srcStyle = URL::base().'media/css/';
+        $this->template->srcScript = URL::base().'media/js/';
 
         $this->template->styles = array(
              'bootstrap.min',
