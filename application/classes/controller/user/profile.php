@@ -59,7 +59,7 @@ class Controller_User_Profile extends Controller_Application {
        // echo time() - $user_info->last_activity; exit();
       
         $online = ((time() - $user_info->last_activity) <= 300) ? TRUE : FALSE;
-      
+        
         $massege = 'Пользователь с id '.$id;
        
         

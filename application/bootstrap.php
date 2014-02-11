@@ -33,7 +33,8 @@ date_default_timezone_set('Europe/Kiev');
  * @see  http://kohanaframework.org/guide/using.configuration
  * @see  http://php.net/setlocale
  */
-setlocale(LC_ALL, 'ru_RU.utf-8');
+ //setlocale(LC_ALL, 'ru_RU.CP1251', 'rus_RUS.CP1251', 'Russian_Russia.1251');
+
 
 /**
  * Enable the Kohana auto-loader.
