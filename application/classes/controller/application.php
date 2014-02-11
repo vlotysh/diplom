@@ -13,6 +13,8 @@ class Controller_Application extends Controller_Primary {
                  if (!$this->auth->logged_in()) {
                      
                      $this->request->redirect('login');
+                 } else {
+                      ORM::factory('user',$this->auth->get_user()->id)->set('last_activity', time())->save();
                  }
 		//Объясление моделей
                 

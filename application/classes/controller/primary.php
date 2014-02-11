@@ -11,7 +11,10 @@ class Controller_Primary extends Controller_Template {
         parent::before();
         
         $this->auth = Auth::instance();
+         
         
+        //last_activity функция, для проверки на онлайн
+       
 
         if ($this->auto_render) {
             // keep the last url if it's not home/language

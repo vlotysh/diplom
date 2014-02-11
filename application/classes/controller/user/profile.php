@@ -16,8 +16,8 @@ class Controller_User_Profile extends Controller_Application {
         $this->template->profile_class_link_menu = 'active';
         
         $this->template->title =  'Страничка пользователя';
-         $this->template->content = Auth::instance()->get_user()->id;
-         $id = Auth::instance()->get_user()->id;
+        $this->template->content = Auth::instance()->get_user()->id;
+        $id = Auth::instance()->get_user()->id;
 //       / $info = ORM::factory('base')->getUsersById(13);
     
 //        echo View::factory('profiler/stats');
@@ -52,9 +52,14 @@ class Controller_User_Profile extends Controller_Application {
         $user_page = View::factory('user/user')
                 ->bind('massege',$massege)
                 ->bind('user_info',$user_info )
-                ->bind('massege_form',$massege_form);
+                ->bind('massege_form',$massege_form)
+                ->bind('online',$online);
         
-        $user_info = $this->auth->get_user();       
+        $user_info = ORM::factory('user',$id);
+       // echo time() - $user_info->last_activity; exit();
+      
+        $online = ((time() - $user_info->last_activity) <= 300) ? TRUE : FALSE;
+      
         $massege = 'Пользователь с id '.$id;
        
         
