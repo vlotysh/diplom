@@ -6,7 +6,7 @@
             <td  class="center">
                 <span><a href="<?= URL::base()?>user<?= $md['user_id']; ?>"><?=$md['fio'];?></a></span><br>
                 
-                <span><?= date("j. n. Y G:i:s",$md['date']);?></span>
+                <span><?= HTML::rusTime($md['date']);?></span>
             </td>
             <td  class="right_side">
                 <p class="ps_title"><?=$md['title']; ?></p>

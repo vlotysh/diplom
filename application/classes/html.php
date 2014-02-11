@@ -48,6 +48,11 @@ class HTML extends Kohana_HTML {
                 break;
         }
         
+        if(date('j m',time()) == date('j m',$time)) {
+            return __('Today').'&nbsp;'.date('H:i:s',$time);
+        }
+        
+        
        return $date[0].'&nbsp;'.$m.'&nbsp;'.date('H:i:s',$time);
     }
     
