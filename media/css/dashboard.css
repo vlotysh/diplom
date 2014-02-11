@@ -43,7 +43,7 @@ border-right: 1px solid #eee;
 }
 @media (max-width: 767px) {
 .sidebar {
-
+padding: 0;
  width: 100%;
 position: absolute;
 bottom: -10px;
@@ -55,6 +55,12 @@ text-align: center;
 border-right: 1px solid #eee;
 }
 
+.main , .container-fluid {
+     padding: 0 15px 0 0;
+}
+div.main {
+    padding: 0;
+}
 .sidebar li {
     width: 100%;
 }
