@@ -44,10 +44,10 @@ border-right: 1px solid #eee;
 @media (max-width: 767px) {
 .sidebar {
 
-    
+ width: 100%;
 position: absolute;
 bottom: -10px;
-width: 20%;
+
 z-index: 1000;
 display: block;
 
@@ -55,13 +55,15 @@ text-align: center;
 border-right: 1px solid #eee;
 }
 
+.sidebar li {
+    width: 100%;
+}
+
 .main {
     padding-bottom: 200px;
 }
 
-.row, .sidebar {
-    min-width: 480px;
-}
+
 .row {
     position: relative;
     padding-bottom: 170px;

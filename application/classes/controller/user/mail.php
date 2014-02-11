@@ -37,7 +37,7 @@ class Controller_User_Mail extends Controller_Application {
        
        //Инициализация параметров динамической загрузки
        
-       $limit = 3;
+       $limit = 10;
        $offset = $num;
      
        $ms_data =  $this->MailModel->getAllOutInBoxPm($user->id,$limit,$offset,$type);
