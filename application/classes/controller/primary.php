@@ -60,23 +60,21 @@ class Controller_Primary extends Controller_Template {
         $this->template->srcScript = URL::base().'media/js/';
 
         $this->template->styles = array(
-             'bootstrap.min',
-            'bootstrap-responsive.min',
-            'style',
-            'bootstrap',
-            'dashboard',
-            'bootstrap-responsive.min',
+            'bootstrap.min.css',
+            'bootstrap-responsive.min.css',
+            'style.css',
+            'dashboard.css',
+            'bootstrap-responsive.min.css',
+            'styles.less',
         );
 
         $this->template->scripts = array(
            'jquery',
-           
-            'jquery.alphanumeric.min',
-            'jquery.password.sm.min',
-            'main',
-            'angular',
-            'prefixfree.min',
-                //'less-1.2.1.min'
+           'main',
+           'angular',
+           'prefixfree.min',
+           'less',
+           'device.min',
         );
         
         

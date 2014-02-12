@@ -299,6 +299,12 @@ Route::set('language', '<lg>', array('lg' => 'ru|ua|en'))
         
     ));
 
+Route::set('user_section', '<controller>/<action>(/<id>)')
+        ->defaults(array(
+            'directory' => 'user',
+            'controller' => 'welcome',
+            'action' => 'index',
+        ));
 
 
 Route::set('default', '(<controller>(/<action>(/<name>)))')

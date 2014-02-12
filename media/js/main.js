@@ -24,9 +24,8 @@ $("#send").click(function() { // при нажатии кнопки добавл
 
 /// Динамическая подзагрузка
 
-$(document).ready(function() {
-    $("#imgLoad").hide();  //Скрываем прелоадер
-});
+
+
 
 
 $("#load_pm").click(function() { // при нажатии кнопки добавления новой статьи
@@ -79,6 +78,26 @@ $("#load_pm").click(function() { // при нажатии кнопки доба�
     });
 });
 
+function updateOnline() {
+     console.log('Отправка на проверку онлайн!');
+     $.ajax({
+        type: "POST",
+        async: false,
+        url: "/profile/online",
+        success: function(res) {
+            if(res.status === 1) {
+                 console.log('Все ок!');
+            }else {
+                console.log('Все НЕ ок!');
+            }
+        }
+     });
+};
+
+
+    
+
+
 
  /*$(".nav li a").click(function(e) {
     e.preventDefault(e);
@@ -111,6 +130,11 @@ $("#load_pm").click(function() { // при нажатии кнопки доба�
 
 
 */
+
+$(document).ready(function() {
+    $("#imgLoad").hide();  //Скрываем прелоадер
+    
+});
 
 function getData(obj_form) {
     var hData = {};

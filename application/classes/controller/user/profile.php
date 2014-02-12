@@ -10,7 +10,7 @@ class Controller_User_Profile extends Controller_Application {
        
     }
 
-
+    
     public function action_index(){
         
         $this->template->profile_class_link_menu = 'active';
@@ -45,7 +45,6 @@ class Controller_User_Profile extends Controller_Application {
         $massege_form = View::factory('user/mail_form')
                 ->bind('recipient_id',$id)
                 ->bind('sender_id',$id_carent)
-  
                 ->render();
 
      
@@ -58,7 +57,7 @@ class Controller_User_Profile extends Controller_Application {
         $user_info = ORM::factory('user',$id);
        // echo time() - $user_info->last_activity; exit();
       
-        $online = ((time() - $user_info->last_activity) <= 300) ? TRUE : FALSE;
+        $online = ((time() - $user_info->last_activity) <= 180) ? TRUE : FALSE;
         
         $massege = 'Пользователь с id '.$id;
        
@@ -71,6 +70,21 @@ class Controller_User_Profile extends Controller_Application {
         $this->template->content = $user_page ;
         
     }
+          //Обновления статус онлайн
+    public function action_online() {
+   
+        if($this->request->is_ajax()){
+            if($this->auth->get_user()) {
+                $result = ORM::factory('user',$this->auth->get_user()->id)->set('last_activity', time())->save();
+                if($result) $res['status'] = 1;
+                else $res['status'] = 0;
+                
+                echo json_encode($res);
+                exit();
+                
+            }
             
+        }
+    }
     
 }
