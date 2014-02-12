@@ -29,6 +29,6 @@ return array(
          'options' => array('hostname' => 'smtp.gmail.com',
                                     'username' => 'vladislavlotysh@gmail.com',
                                     'password' => '1217vlad1217',
-                                    'port'     => '465',
-                                    'encryption' => 'ssl'
+                                    'port'     => '25',
+                               
          ));
