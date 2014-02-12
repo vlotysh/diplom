@@ -19,7 +19,7 @@
         /*if(device.windows()) {
            alert('no mob!'); 
         }*/
-        
+
         if(!device.mobile()) {
         setInterval(updateOnline, 180000);
         }

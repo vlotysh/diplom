@@ -177,6 +177,7 @@ Kohana::modules(array(
          'calendar'=>MODPATH.'calendar', // Calendar
 	 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
          'profilertoolbar'=> MODPATH.'profilertoolbar',
+         'email'       => MODPATH.'email', // E-mail
 	));
 
 /**

@@ -11,6 +11,24 @@ class Controller_User_Mail extends Controller_Application {
         $this->template->mail_class_link_menu = 'active';
     }
     
+    public function action_email() {
+    $config = Kohana::$config->load('email');
+    Email::connect($config);
+ 
+    $to = 'Gangsta1@i.ua';
+    $subject = 'Сообщение от Коханой..т.е. Коханы.';
+    $from = 'vladislavlotysh@gmail.com';
+    $message = '<p style="color:red">Куку!</p>';
+ 
+    $res = Email::send($to, $from, $subject, $message, $html = true);
+    
+    if($res) {
+         $this->template->content = 'Все ок';
+    } else {
+        $this->template->content = 'НЕ Все ок';
+    }
+    }
+    
     public function action_index() {
         
         $section = $this->request->query('section');
