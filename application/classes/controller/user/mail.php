@@ -18,7 +18,7 @@ class Controller_User_Mail extends Controller_Application {
     $to = 'Gangsta1@i.ua';
     $subject = 'Сообщение от Коханой..т.е. Коханы.';
     $from = 'vladislavlotysh@gmail.com';
-    $message = '<p style="color:red">Куку!</p>';
+    $message = View::factory('email')->set('content','КОНТЕНТ')->render();
  
     $res = Email::send($to, $from, $subject, $message, $html = true);
     
