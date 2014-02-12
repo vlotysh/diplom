@@ -15,7 +15,7 @@ class Controller_User_Mail extends Controller_Application {
     $config = Kohana::$config->load('email');
     Email::connect($config);
  
-    $to = 'Gangsta1@i.ua';
+    $to = 'Gangsta111@bigmir.net';
     $subject = 'Сообщение от Коханой..т.е. Коханы.';
     $from = 'vladislavlotysh@gmail.com';
     $message = View::factory('email')->set('content','КОНТЕНТ')->render();
@@ -23,7 +23,7 @@ class Controller_User_Mail extends Controller_Application {
     $res = Email::send($to, $from, $subject, $message, $html = true);
     
     if($res) {
-         $this->template->content = 'Все ок';
+         $this->template->content = 'Все ок. Почта ушла на '.$to;
     } else {
         $this->template->content = 'НЕ Все ок';
     }
