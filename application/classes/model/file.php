@@ -58,8 +58,8 @@ class Model_File extends Model_Base {
 
     private function uploads_dir() {
         if (!is_dir('uploads\\' . date('Ym'))) {
-            mkdir('uploads\\' . date('Ym'),0777, true);
-           chmod('uploads\\' . date('Ym'),0777);
+           mkdir(DOCROOT.'uploads/' . date('Ym'));
+          chmod(DOCROOT.'uploads/' . date('Ym'),777);
         }
         return 'uploads\\' . date('Ym') . DIRECTORY_SEPARATOR;
     }
