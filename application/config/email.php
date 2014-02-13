@@ -26,9 +26,9 @@ return array(
 	 * @param   array   smtp: hostname, (username), (password), (port), (encryption)
 	 */
 //       'options' => NULL
-         'options' => array('hostname' => 'smtp.gmail.com',
-                                    'username' => 'vladislavlotysh@gmail.com',
-                                    'password' => '1217vlad1217',
-                                    'port'     => '465',
-                                    'encryption' => 'ssl'
+         'options' => array('hostname' => 'mail.aliensone.com',
+                                    'username' => 'post_vlad@aliensone.com',
+                                    'password' => '121790',
+                                    'port'     => '25',
+                                   
          ));
