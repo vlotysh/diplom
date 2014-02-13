@@ -41,10 +41,7 @@ CREATE TABLE IF NOT EXISTS `files` (
 -- Дамп данных таблицы `files`
 --
 
-INSERT INTO `files` (`id`, `user_id`, `file`, `src`, `type`, `size`, `description`) VALUES
-(1, 0, 'demo.zip', 'uploads/201402/demo.zip', 'zip', 8287, ''),
-(2, 14, 'Цитати Д.doc', 'uploads/201402/Цитати Д.doc', 'doc', 40960, ''),
-(3, 14, 'афоризм.doc', 'uploads/201402/афоризм.doc', 'doc', 31744, '');
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

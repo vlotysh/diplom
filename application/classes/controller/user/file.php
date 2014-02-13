@@ -25,7 +25,7 @@ class Controller_User_File extends Controller_Application {
         ));
        $this->template->content = $content;
        $path = DOCROOT.'uploads/1.txt';
-      $this->response->send_file($path);
+     // $this->response->send_file($path);
 
     } 
     
