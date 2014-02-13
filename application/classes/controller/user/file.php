@@ -40,13 +40,26 @@ class Controller_User_File extends Controller_Application {
             $file = ORM::factory('File')->values(Arr::merge($_FILES, $this->request->post()));
  
             // try upload and save file and file info
-            
+            try
+            {
                 // save
                 $file->save();
  
                 // set user message
                 Session::instance()->set('message', 'File is successfully uploaded');
-            
+            }
+            catch (ORM_Validation_Exception  $e)
+            {
+                // prepare errors
+                $errors = $e->errors('upload');
+                $errors = Arr::merge($errors, Arr::get($errors, '_external', array()));
+ 
+                // remove external errors
+                unset($errors['_external']);
+ 
+                // set user errors
+                Session::instance()->set('errors', $errors);
+            }
         }
  
         // redirect to home page

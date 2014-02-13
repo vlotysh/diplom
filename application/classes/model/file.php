@@ -58,14 +58,15 @@ class Model_File extends Model_Base {
 
     private function uploads_dir() {
         if (!is_dir('uploads\\' . date('Ym'))) {
-            mkdir('uploads\\' . date('Ym'));
+            mkdir('uploads\\' . date('Ym'),0777, true);
+           chmod('uploads\\' . date('Ym'),0777);
         }
         return 'uploads\\' . date('Ym') . DIRECTORY_SEPARATOR;
     }
 
     public function file_save($file) {
         // upload file
-        $uploaded = Upload::save($file, $file['name'], 'uploads');
+        $uploaded = Upload::save($file, $file['name'], $this->uploads_dir());
 
         // if uploaded set file name to save to database
         if ($uploaded) {
