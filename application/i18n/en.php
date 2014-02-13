@@ -38,7 +38,7 @@ return array(
     'Remember' => 'Remember',
     'Mail' => 'Messages',
     'Today' => 'Today',
-    
+    'File' => 'Files',
     
     'Login_headering' => 'Please enter your login information below:'
 );

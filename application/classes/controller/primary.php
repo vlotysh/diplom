@@ -45,7 +45,7 @@ class Controller_Primary extends Controller_Template {
         $this->template->title = '';
         $this->template->site_name = 'Диплом';
         $this->template->profile_class_link_menu = '';
-        $this->template->admin_class_link_menu = '';
+        $this->template->file_class_link_menu = '';
         $this->template->message_class_link_menu = '';
         $this->template->mail_class_link_menu = '';
         $this->template->author = 'I am';

@@ -3,7 +3,13 @@
 defined('SYSPATH') or die('No direct script access.');
 
 class Controller_User_File extends Controller_Application {
+    
+    public function before() {
+        parent::before();
         
+         $this->template->title = __('File');
+        $this->template->file_class_link_menu = 'active';
+    }
     
     public function action_view() {
         

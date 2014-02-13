@@ -54,6 +54,14 @@
                             </a>
 
                         </li>
+                        
+                        <li class="<?php echo $file_class_link_menu; ?>">
+                            <a href="<?php echo url::site('file'); ?>">
+                                <?php echo __('File'); ?>
+                            </a>
+
+                        </li>
+
 
                     </ul>
 
