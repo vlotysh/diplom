@@ -61,7 +61,7 @@ class Model_File extends Model_Base {
            mkdir(DOCROOT.'uploads/' . date('Ym'));
            chmod(DOCROOT.'uploads/' . date('Ym'),0777);
         }
-        return 'uploads\\' . date('Ym') . DIRECTORY_SEPARATOR;
+        return DOCROOT.'uploads/' . date('Ym') . DIRECTORY_SEPARATOR;
     }
 
     public function file_save($file) {
