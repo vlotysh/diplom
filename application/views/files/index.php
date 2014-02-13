@@ -1,4 +1,4 @@
- <div id="wrap">
+
             <h2>Files</h2>
             <table id="files">
                 <tr>
@@ -32,9 +32,9 @@
             <?php endforeach; ?>
             <form action="<?php echo Route::url('default', array('controller' => 'files', 'action' => 'upload')) ?>" method="post" enctype="multipart/form-data">
                 <label for="file_control">File</label>
-                <div class="row"><input type="file" name="file" id="file_control"></div>
+                <div><input type="file" name="file" id="file_control"></div>
                 <label for="description_control">Description</label>
-                <div class="row"><textarea rows="10" cols="10" name="description" id="description_control"></textarea></div>
+                <div><textarea rows="10" cols="30" name="description" id="description_control"></textarea></div>
                 <div class="controls"><input type="submit" value="Upload"></div>
             </form>
-        </div>
+ 

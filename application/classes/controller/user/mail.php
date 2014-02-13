@@ -16,11 +16,11 @@ class Controller_User_Mail extends Controller_Application {
 
     Email::connect($config);
  
-    $to = 'Gangsta111@bigmir.net';
+    $to = 'Gangsta1@i.ua';
     $subject = 'Сообщение от Коханой..т.е. Коханы.';
     $from = 'vladislavlotysh@gmail.com';
     $message = View::factory('email')->set('content','КОНТЕНТ')->render();
- 
+   
     $res = Email::send($to, $from, $subject, $message, $html = true);
     
     if($res) {
@@ -28,6 +28,7 @@ class Controller_User_Mail extends Controller_Application {
     } else {
         $this->template->content = 'НЕ Все ок';
     }
+    
     }
     
     public function action_index() {

@@ -55,7 +55,7 @@ class Controller_User_File extends Controller_Application {
         }
  
         // redirect to home page
-        $this->request->redirect('/');
+        $this->template->content = 'Файл загружен';
     }
     
 

@@ -50,7 +50,7 @@ class Model_File extends Model_Base {
             'file' => array(
                 array('Upload::valid'),
                 array('Upload::not_empty'),
-                array('Upload::type', array(':value', array('jpg', 'jpeg', 'png', 'gif', 'zip', 'pdf', 'doc', 'docx', 'xls'))),
+                array('Upload::type', array(':value', array('jpg', 'jpeg', 'png','rar','gif', 'zip', 'pdf', 'doc', 'docx', 'xls'))),
                 array(array($this, 'file_save'), array(':value'))
             ),
         );
@@ -69,6 +69,7 @@ class Model_File extends Model_Base {
 
         // if uploaded set file name to save to database
         if ($uploaded) {
+             $this->set('user_id', Auth::instance()->get_user()->id);
             // set file name
             $this->set('file', $file['name']);
 
