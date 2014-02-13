@@ -24,11 +24,18 @@ return array(
 	 * @param   null    native: no options
 	 * @param   string  sendmail: executable path, with -bs or equivalent attached
 	 * @param   array   smtp: hostname, (username), (password), (port), (encryption)
-	 */
-//       'options' => NULL
-         'options' => array('hostname' => 'mail.aliensone.com',
+	*/    /*  
+//       'options' => NULL 
+         'options' => array('hostname' => 'smtp.gmail.com',
+                                    'username' => 'vladislavlotysh@gmail.com',
+                                    'password' => '1217vlad1217',
+                                    'port'     => '465',
+                                    'encryption' => 'ssl' */  
+        
+                 'options' => array('hostname' => 'localhost',
                                     'username' => 'post_vlad@aliensone.com',
                                     'password' => '121790',
-                                    'port'     => '25',
-                                   
+                                    'port'     => '465',
+                          
          ));
+
