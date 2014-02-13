@@ -57,7 +57,7 @@ class Model_File extends Model_Base {
     }
 
     private function uploads_dir() {
-        if (!is_dir('uploads\\' . date('Ym'))) {
+        if (!is_dir(DOCROOT.'uploads/' . date('Ym'))) {
            mkdir(DOCROOT.'uploads/' . date('Ym'));
            chmod(DOCROOT.'uploads/' . date('Ym'),0777);
         }
