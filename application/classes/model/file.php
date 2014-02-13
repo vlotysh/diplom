@@ -65,7 +65,7 @@ class Model_File extends Model_Base {
 
     public function file_save($file) {
         // upload file
-        $uploaded = Upload::save($file, $file['name'], $this->uploads_dir());
+        $uploaded = Upload::save($file, $file['name'], 'uploads');
 
         // if uploaded set file name to save to database
         if ($uploaded) {
