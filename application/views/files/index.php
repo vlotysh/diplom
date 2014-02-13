@@ -35,6 +35,7 @@
                 <div><input type="file" name="file" id="file_control"></div>
                 <label for="description_control">Description</label>
                 <div><textarea rows="10" cols="30" name="description" id="description_control"></textarea></div>
+                <div> <input name="captcha" type="text" /><br><?php echo $captcha; ?></div>
                 <div class="controls"><input type="submit" value="Upload"></div>
             </form>
  

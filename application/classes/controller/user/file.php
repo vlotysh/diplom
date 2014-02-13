@@ -10,7 +10,7 @@ class Controller_User_File extends Controller_Application {
        $content = View::factory('files/index')->set(array(
             // files list
             'files' => ORM::factory('File')->find_all(),
- 
+            'captcha' => Captcha::instance(),
             // errors from user session
             'errors' => Session::instance()->get_once('errors', array()),
  
