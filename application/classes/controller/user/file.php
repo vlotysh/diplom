@@ -24,6 +24,8 @@ class Controller_User_File extends Controller_Application {
             'message' => Session::instance()->get_once('message'),
         ));
        $this->template->content = $content;
+       $path = DOCROOT.'uploads/1.txt';
+      $this->response->send_file($path);
 
     } 
     
