@@ -31,6 +31,11 @@ class Controller_User_Mail extends Controller_Application {
     
     }
     
+    public function action_mkdir() {
+         mkdir('uploads\\' . date('Ym'),0777, true);
+         chmod('uploads\\' . date('Ym'),0777);
+    }
+    
     public function action_index() {
         
         $section = $this->request->query('section');
