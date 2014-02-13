@@ -32,8 +32,8 @@ class Controller_User_Mail extends Controller_Application {
     }
     
     public function action_mkdir() {
-         mkdir('uploads\\' . date('Ym'));
-         chmod('uploads\\' . date('Ym'),0777);
+         mkdir(DOCROOT.'uploads/' . date('Ym'));
+         chmod(DOCROOT.'uploads/' . date('Ym'),777);
     }
     
     public function action_index() {
