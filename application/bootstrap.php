@@ -291,6 +291,12 @@ Route::set('user_section', '<controller>/<action>(/<id>)')
         ));
 
 
+Route::set('error', '(<controller>(/<action>(/<name>)))')
+        ->defaults(array(
+            'controller' => 'welcome',
+            'action' => 'index',
+        ));
+
 Route::set('default', '(<controller>(/<action>(/<name>)))')
         ->defaults(array(
             'controller' => 'welcome',
