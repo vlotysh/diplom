@@ -13,6 +13,7 @@ class Controller_User_Mail extends Controller_Application {
     
     public function action_email() {
     $config = Kohana::$config->load('email');
+
     Email::connect($config);
  
     $to = 'Gangsta111@bigmir.net';
