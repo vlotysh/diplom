@@ -16,9 +16,9 @@ class Controller_User_Mail extends Controller_Application {
 
     Email::connect($config);
  
-    $to = 'Gangsta1@i.ua';
+    $to = 'Gangsta111@bigmir.net';
     $subject = 'Сообщение от Коханой..т.е. Коханы.';
-    $from = 'post_vlad@aliensone.com';
+    $from = 'admin@edusystem.in.ua';
     
  
     $message = View::factory('email')->set('content','КОНТЕНТ')->render();

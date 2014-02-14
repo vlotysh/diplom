@@ -32,10 +32,10 @@ return array(
                                     'port'     => '465',
                                     'encryption' => 'ssl' */  
         
-                 'options' => array('hostname' => 'localhost',
-                                    'username' => 'post_vlad@aliensone.com',
+                 'options' => array('hostname' => 'mail.edusystem.in.ua',
+                                    'username' => 'admin@edusystem.in.ua',
                                     'password' => '121790',
-                                    'port'     => '465',
+                                    'port'     => '25',
                           
          ));
 
