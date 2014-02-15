@@ -11,23 +11,20 @@
 
       <!--  <link rel="stylesheet/less" type="text/css" href="<?php echo url::base(); ?>media/css/styles.less">-->
 
-        <?php foreach ($scripts as $script) : ?>
+       <?php foreach ($scripts as $script) : ?>
             <script src="<?php echo url::base(); ?>media/js/<?php echo $script; ?>.js" /></script>
     <?php endforeach; ?>
-
+    
     <script>
         /*if(device.windows()) {
            alert('no mob!'); 
         }*/
-
+   
         if(!device.mobile()) {
-        setInterval(updateOnline, 180000);
+        setInterval(updateOnline, 18000);
         }
         
-        
-        $("#load_pm").click(function() {
-          alert('1');
-        })
+      
 
     </script>
 
@@ -98,6 +95,6 @@
 
     <?php endif; ?>
 
-
+ 
 </body>
 </html>

@@ -1,6 +1,35 @@
+function updateOnline() {
+     console.log('Отправка на проверку онлайн!');
+     $.ajax({
+        type: "POST",
+        async: false,
+        url: "/profile/online",
+        success: function(res) {
+            if(res.status === 1) {
+                 console.log('Все ок!');
+            }else {
+                console.log('Все НЕ ок!');
+            }
+        }
+     });
+};
 
 $(document).ready(function () {
- 
+   
+    $(".input-append").on("change", "input", function() {
+     
+    $(".input-append").append('<input type="file" name="file[]" id="file_control">');
+       
+});
+   
+function scrollto() {
+        
+         var height = $('body')[0].scrollHeight;
+        $('body').animate({scrollTop:height},3000);
+    }
+
+   
+
 $("#send").click(function() { // при нажатии кнопки добавления новой статьи
 
      console.log('Все ок!');
@@ -71,8 +100,12 @@ $("#load_pm").click(function() { // при нажатии кнопки доба�
                 offset = offset + offset;
                 $("#load_pm").show();
                 $("#load_pm").attr('offset',offset);
-                
+                 
                 $("#imgLoad").hide();
+                
+                $('#load_pm').on('click', function(){
+              
+                     });
                 
                 /*var height = $('body')[0].scrollHeight;
                 $('body').animate({scrollTop:height},1000);*/
@@ -84,21 +117,7 @@ $("#load_pm").click(function() { // при нажатии кнопки доба�
 });
 
 
-function updateOnline() {
-     console.log('Отправка на проверку онлайн!');
-     $.ajax({
-        type: "POST",
-        async: false,
-        url: "/profile/online",
-        success: function(res) {
-            if(res.status === 1) {
-                 console.log('Все ок!');
-            }else {
-                console.log('Все НЕ ок!');
-            }
-        }
-     });
-};
+
 
 
     
