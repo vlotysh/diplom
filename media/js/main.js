@@ -1,6 +1,9 @@
 
+$(document).ready(function () {
+ 
 $("#send").click(function() { // при нажатии кнопки добавления новой статьи
-    console.log('Все ок!');
+
+     console.log('Все ок!');
     var postData = getData('.ms_block');
     $('#text').html('Началось!');
     $('.ms_block').hide();
@@ -26,8 +29,7 @@ $("#send").click(function() { // при нажатии кнопки добавл
 
 
 
-
-
+     
 $("#load_pm").click(function() { // при нажатии кнопки добавления новой статьи
     
     console.log('Еще сообщений!');
@@ -65,18 +67,22 @@ $("#load_pm").click(function() { // при нажатии кнопки доба�
              
                 $(".mail_table tbody").append(res.num);
                 var offset = parseInt($("#load_pm").attr("offset"));
-                           
+                
                 offset = offset + offset;
                 $("#load_pm").show();
                 $("#load_pm").attr('offset',offset);
                 
                 $("#imgLoad").hide();
+                
+                /*var height = $('body')[0].scrollHeight;
+                $('body').animate({scrollTop:height},1000);*/
              }
                
             
         }
     });
 });
+
 
 function updateOnline() {
      console.log('Отправка на проверку онлайн!');
@@ -149,3 +155,5 @@ function getData(obj_form) {
 
     return hData;
 }
+
+});

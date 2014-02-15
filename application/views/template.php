@@ -23,6 +23,12 @@
         if(!device.mobile()) {
         setInterval(updateOnline, 180000);
         }
+        
+        
+        $("#load_pm").click(function() {
+          alert('1');
+        })
+
     </script>
 
 
