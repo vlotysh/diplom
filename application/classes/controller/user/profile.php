@@ -35,6 +35,20 @@ class Controller_User_Profile extends Controller_Application {
       
         $id = $this->request->param('id');
         
+      
+      
+       
+         # $arrayyy = array('fio' => 'Лотыш Владислав Николаевич','age' =>'25',);
+         #  $new = json_encode($arrayyy);
+         #  $info = ORM::factory('base')->UpdateUserById(13,$new);
+         #   $info1 = ORM::factory('base')->getUserById(13);
+        
+        
+        
+      # $info1['info'] = json_decode($info1['info']);
+       
+
+     
         
         if( $this->auth->get_user()->id == $id ) {
             $url = URL::base().'/profile';

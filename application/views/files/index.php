@@ -31,16 +31,16 @@
             </table>
  
             <h2>Upload</h2>
-            <?php if ($message) : ?>
-                <div class="message"><?php echo HTML::chars($message) ?></div>
-            <?php endif; ?>
+            <?php foreach ($message as $mes) : ?>
+                <div class="error"><?php echo HTML::chars($mes) ?></div>
+                 <?php endforeach; ?>
                
                    <?php foreach ($errors as $error) : ?>
                 <div class="error"><?php echo HTML::chars($error) ?></div>
-            <?php endforeach; ?>
+                 <?php endforeach; ?>
             <form action="<?php echo Route::url('default', array('controller' => 'files', 'action' => 'upload')) ?>" method="post" enctype="multipart/form-data">
                 <label for="file_control">File</label>
-                <div class="input-append"><input type="file" name="file[]" id="file_control"></div>
+                <div class="input-append"><input type="file" multiple="true" name="file[]" id="file_control"></div>
                                <!--<div><textarea rows="10" cols="30" name="description[]" id="description_control"></textarea></div>
                 <div><textarea rows="10" cols="30" name="description[]" id="description_control"></textarea></div>-->
                 <div class="controls"><input type="submit" value="<?php echo __('Upload');?>"></div>

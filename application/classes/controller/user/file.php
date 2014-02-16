@@ -19,7 +19,7 @@ class Controller_User_File extends Controller_Application {
             // errors from user session
             'errors' => Session::instance()->get_once('errors', array()),
             // message from user session
-            'message' => Session::instance()->get_once('message'),
+            'message' => Session::instance()->get_once('message', array()),
         ));
 
         $this->template->content = $content;
@@ -54,7 +54,9 @@ class Controller_User_File extends Controller_Application {
                     // save
                     $file->save();
                     // set user message
-                    Session::instance()->set('message', 'Файл ' . $_FILES['file']['name'][$k] . ' успешно загружен');
+                    $message[] = 'Файл ' . $_FILES['file']['name'][$k].' успешно загружен!';
+                    Session::instance()->set('message', $message);
+                    
                 } catch (ORM_Validation_Exception $e) {
                     // prepare errors
                     $errors = $e->errors('upload');
@@ -64,7 +66,7 @@ class Controller_User_File extends Controller_Application {
 
                       // set user errors
                       Session::instance()->set('errors', $errors); */
-                    $err[] = 'Неверный файл ' . $_FILES['file']['name'][$k];
+                    $err[] = 'Неверный файл ' . $_FILES['file']['name'][$k].' !';
 
                     Session::instance()->set('errors', $err);
                     continue;
