@@ -96,6 +96,7 @@ class Controller_User_Mail extends Controller_Application {
     /* Просмотр сообщений! */
 
     public function action_view() {
+      
 
         $massege_id = $this->request->param('massege_id');
 

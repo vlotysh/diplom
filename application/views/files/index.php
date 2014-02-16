@@ -16,11 +16,11 @@
                     <?php foreach ($files as $file) : /** @var Model_File $file **/ ?>
                         <tr>
                             <td class="type"><img src="<?php echo URL::base('http') ?>public/icons/16px/<?php echo $file->type ?>.png"></td>
-                            <td class="name"><a href="<?php echo URL::base('http') ?><?php echo $file->src ?>"><?php echo $file->file ?></a></td>
+                            <td class="name<?php echo $file->id ?>"><a href="<?php echo URL::base('http') ?><?php echo $file->src ?>"><?php echo $file->file ?></a></td>
                             
                             <td class="date"><?= HTML::rusTime($file->date);?></td>
                             <td class="size"><?php echo Text::bytes($file->size) ?></td>
-                            <td><a class="delete" href="file/delete/<?php echo $file->id ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
+                            <td><a class="delete" rel="<?php echo $file->id ?>" href="file/delete/<?php echo $file->id ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
                         </tr>
                     <?php endforeach; ?>
                         <?php else : ?>

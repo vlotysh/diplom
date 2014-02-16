@@ -33,7 +33,9 @@ function scrollto() {
 
 //Запрос на подтверждение удаление файла
    $(".delete").click(function() {
-       if (confirm("Уадилить файл?"+ $('.name').text())) {
+       var idi = $(this).attr('rel');
+       
+       if (confirm("Уадилить файл "+ $('.name'+idi).text()+"?")) {
      
     } else {
             return false;
