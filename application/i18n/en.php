@@ -39,6 +39,6 @@ return array(
     'Mail' => 'Messages',
     'Today' => 'Today',
     'File' => 'Files',
-    
+    'Upload' => 'Upload',
     'Login_headering' => 'Please enter your login information below:'
 );

@@ -1,25 +1,32 @@
 
             <h2>Files</h2>
-            <table id="files">
+            <?php if ($files->count() != 0) : ?>
+            <table id="files" class="table">
                 <tr>
                     <th>Type</th>
                     <th>Name</th>
+                    <th>Date</th>
                     <th>Size</th>
-                    <th>Description</th>
+                    <th></th>
+                    
                 </tr>
-                <?php if ($files->count() === 0) : ?>
-                <tr>
-                    <td colspan="4">Uploaded files not found</td>
-                </tr>
-                <?php else : ?>
+               
+               
+                
                     <?php foreach ($files as $file) : /** @var Model_File $file **/ ?>
                         <tr>
                             <td class="type"><img src="<?php echo URL::base('http') ?>public/icons/16px/<?php echo $file->type ?>.png"></td>
                             <td class="name"><a href="<?php echo URL::base('http') ?><?php echo $file->src ?>"><?php echo $file->file ?></a></td>
+                            
+                            <td class="date"><?= HTML::rusTime($file->date);?></td>
                             <td class="size"><?php echo Text::bytes($file->size) ?></td>
-                          
+                            <td class="delete"><a href="file/delete/<?php echo $file->id ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
                         </tr>
                     <?php endforeach; ?>
+                        <?php else : ?>
+                         
+                    <p>Uploaded files not found</p>
+             
                 <?php endif; ?>
             </table>
  
@@ -34,10 +41,8 @@
             <form action="<?php echo Route::url('default', array('controller' => 'files', 'action' => 'upload')) ?>" method="post" enctype="multipart/form-data">
                 <label for="file_control">File</label>
                 <div class="input-append"><input type="file" name="file[]" id="file_control"></div>
-                <div><input type="button" onclick="addFormFile();" value="Добавить" class="alert-link"></div>
-                <label for="description_control">Description</label>
-                <div><textarea rows="10" cols="30" name="description[]" id="description_control"></textarea></div>
-                <div><textarea rows="10" cols="30" name="description[]" id="description_control"></textarea></div>
-                <div class="controls"><input type="submit" value="Upload"></div>
+                               <!--<div><textarea rows="10" cols="30" name="description[]" id="description_control"></textarea></div>
+                <div><textarea rows="10" cols="30" name="description[]" id="description_control"></textarea></div>-->
+                <div class="controls"><input type="submit" value="<?php echo __('Upload');?>"></div>
             </form>
  

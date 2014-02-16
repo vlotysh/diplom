@@ -11,7 +11,7 @@ class Model_File extends Model_Base {
         'src' => 'src',
         'type' => 'type',
         'size' => 'size',
-        'description' => 'description',
+        'date' => 'date',
     );
 
     /**
@@ -83,6 +83,9 @@ class Model_File extends Model_Base {
 
             // set file size
             $this->set('size', $file['size']);
+            
+            // set time size
+            $this->set('date', time());
             
          
        

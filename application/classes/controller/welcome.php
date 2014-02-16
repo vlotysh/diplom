@@ -6,7 +6,14 @@ class Controller_Welcome extends Controller_Application  {
     public function action_index()
 	{		
         $this->template->content = View::factory('welcome');
-	}
+        
+       /* if(!Request::user_agent('mobile')) {
+            echo Request::user_agent('platform'); exit();
+        }*/
+        
+        
+        
+        }
   
         public function action_language()
 	{
