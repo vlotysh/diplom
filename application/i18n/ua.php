@@ -16,7 +16,7 @@ return array(
     //pagination
     'First'=>'У початок',
     'Previous'=>'Назад',
-    'Next'=>'Уперід',
+    'Next'=>'Далі',
     'Last'=>'В кінець',
     //menu
     'Home'=>'Початок',

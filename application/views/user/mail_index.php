@@ -7,7 +7,7 @@
     </li>
    
     </ul>
-
+<?php echo $pagination;?>
 
 <div class="mail_cell">
     <table width="100%" class="mail_table"> 
