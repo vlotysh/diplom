@@ -7,7 +7,7 @@ class Model_Mail extends Model_Base {
     protected $_table_name = 'mails';
     protected $_primary_key = 'id';
 
-    public function getAllOutInBoxPm($user_id = '', $limit,$offset, $action = 'inbox') {
+    public function getAllOutInBoxPm($user_id = '', $limit = 1000000, $offset = 0, $action = 'inbox') {
 
         if ($action == 'inbox') {
             $saider = 'sender_id'; //Параметр получателя при полученных
