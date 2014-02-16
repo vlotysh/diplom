@@ -14,7 +14,7 @@ class Controller_User_File extends Controller_Application {
 
         $content = View::factory('files/index')->set(array(
             // files list
-            'files' => ORM::factory('File')->where('user_id','=',$this->auth->get_user()->id)->find_all(),
+            'files' => ORM::factory('File')->where('user_id','=',$this->auth->get_user()->id)->order_by('id','DESC')->find_all(),
             'captcha' => Captcha::instance(),
             // errors from user session
             'errors' => Session::instance()->get_once('errors', array()),
