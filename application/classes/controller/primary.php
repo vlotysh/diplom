@@ -18,7 +18,7 @@ class Controller_Primary extends Controller_Template {
 
         if ($this->auto_render) {
             // keep the last url if it's not home/language
-            if (Request::current()->action() != 'language') {
+            if (Request::current()->action() != 'language' && Request::current()->online()) {
                 Session::instance()->set('controller', Request::current()->uri());
             }
 
