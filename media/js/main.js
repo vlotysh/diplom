@@ -14,6 +14,9 @@ function updateOnline() {
      });
 };
 
+
+
+
 $(document).ready(function () {
    
     $(".input-append").on("change", "input", function() {
@@ -28,7 +31,15 @@ function scrollto() {
         $('body').animate({scrollTop:height},3000);
     }
 
-   
+//Запрос на подтверждение удаление файла
+   $(".delete").click(function() {
+       if (confirm("Уадилить файл?"+ $('.name').text())) {
+     
+    } else {
+            return false;
+    }
+
+   })
 
 $("#send").click(function() { // при нажатии кнопки добавления новой статьи
 

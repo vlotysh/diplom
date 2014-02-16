@@ -20,7 +20,7 @@
                             
                             <td class="date"><?= HTML::rusTime($file->date);?></td>
                             <td class="size"><?php echo Text::bytes($file->size) ?></td>
-                            <td class="delete"><a href="file/delete/<?php echo $file->id ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
+                            <td><a class="delete" href="file/delete/<?php echo $file->id ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
                         </tr>
                     <?php endforeach; ?>
                         <?php else : ?>
