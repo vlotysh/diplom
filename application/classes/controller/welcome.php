@@ -34,7 +34,7 @@ class Controller_Welcome extends Controller_Application  {
                 $this->template->lang_class_link_menu = 'active';
 		Cookie::set('lang', $lang);
 		I18n::lang($lang);
-                $this->request->redirect('/');
+                $this->request->redirect(Session::instance()->get('controller'));
                 
 	}
 
