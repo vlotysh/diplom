@@ -171,7 +171,7 @@ Kohana::modules(array(
     // 'unittest'   => MODPATH.'unittest',   // Unit testing
     'calendar' => MODPATH . 'calendar', // Calendar
     'userguide' => MODPATH . 'userguide', // User guide and API documentation
-    'profilertoolbar' => MODPATH . 'profilertoolbar',
+    //'profilertoolbar' => MODPATH . 'profilertoolbar',
     'email' => MODPATH . 'email', // E-mail
     'captcha' => MODPATH . 'captcha', //Captcha
 ));
