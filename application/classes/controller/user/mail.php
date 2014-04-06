@@ -103,8 +103,8 @@ class Controller_User_Mail extends Controller_Application {
         $massege = $this->MailModel->getOnPm($massege_id);
 
 
-        $massege['sender_info'] = $this->MailModel->getUsersById($massege['sender_id']);
-        $massege['recipient_info'] = $this->MailModel->getUsersById($massege['recipient_id']);
+        $massege['sender_info'] = $this->MailModel->getUserById($massege['sender_id']);
+        $massege['recipient_info'] = $this->MailModel->getUserById($massege['recipient_id']);
 
         if ($this->auth->get_user()->id == $massege['recipient_info']['user_id']) {
 
