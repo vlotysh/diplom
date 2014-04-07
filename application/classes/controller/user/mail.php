@@ -38,7 +38,9 @@ class Controller_User_Mail extends Controller_Application {
     }
 
     public function action_index() {
-
+        
+       
+        
         $section = $this->request->query('section');
    
 
@@ -89,7 +91,7 @@ class Controller_User_Mail extends Controller_Application {
                 ->bind('pagination', $pagee)
                 ->bind('outbox', $outbox);
 
-
+ 
         $this->template->content = $mail_inbox;
     }
 
