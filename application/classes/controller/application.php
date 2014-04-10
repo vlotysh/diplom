@@ -35,6 +35,8 @@ class Controller_Application extends Controller_Primary {
           
              $ms = ORM::factory('mail')->where('read', '=', 0)->and_where('recipient_id', '=', Auth::instance()->get_user()->id)->count_all();
             //$this->debug($ms);
+             
+             
             $this->template->msCount = $ms;
            
                 

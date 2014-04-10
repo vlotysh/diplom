@@ -213,12 +213,15 @@ Route::set('noaccess', 'noaccess')
  * РОУТ ПОЛЬЗОВАТЕЛЯ, ПРОФАЙЛ
  */
 
+
 Route::set('profile', 'profile(/<action>(/<param>))')
         ->defaults(array(
             'directory' => 'user',
             'controller' => 'profile',
             'action' => 'index',
         ));
+
+
 
 Route::set('user', 'user<id>', array('id' => '[0-9]+'))
         ->defaults(array(

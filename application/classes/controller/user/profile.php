@@ -30,25 +30,43 @@ class Controller_User_Profile extends Controller_Application {
         echo $familiya;
         exit();*/
     }
+    public function action_allusers() {
+        
+        $this->template->userlist_link_menu = 'active';
+        
+        $count = ORM::factory('user')->count_all();
+        
+        $pagination = Pagination::factory(array(
+     
+                    'current_page' => array('source' => 'query_string', 'key' => 'page'), // source: "query_string" or "route"
+                    'total_items' => $count,
+                    'items_per_page' => 10,
+                    ));
+        
+        $pagination->route_params(array('controller' => $this->request->controller(), 'action' => $this->request->action() ));
+        
+        
+        $find = Model::factory('users')->find_users('Вл');
+       
+        $data['per_page'] = $pagination->items_per_page;
+        $data['users'] = Model::factory('users')->find_all($pagination->items_per_page, $pagination->offset);
+        $data['pagination'] = $pagination->render();
+        
+        
+        $this->template->content = View::factory('user/userlist',$data);
+    
+    }
     
     public function action_user(){
       
         $id = $this->request->param('id');
-        
-      
-      
-       
+    
          # $arrayyy = array('fio' => 'Лотыш Владислав Николаевич','age' =>'25',);
          #  $new = json_encode($arrayyy);
          #  $info = ORM::factory('base')->UpdateUserById(13,$new);
          #   $info1 = ORM::factory('base')->getUserById(13);
         
-        
-        
       # $info1['info'] = json_decode($info1['info']);
-       
-
-     
         
         if( $this->auth->get_user()->id == $id ) {
             $url = URL::base().'/profile';
@@ -74,12 +92,7 @@ class Controller_User_Profile extends Controller_Application {
         $online = ((time() - $user_info->last_activity) <= 180) ? TRUE : FALSE;
         
         $massege = 'Пользователь с id '.$id;
-       
-        
-        
-        
-        
-        
+ 
         $this->template->title =  $user_info->username;
         $this->template->content = $user_page ;
         

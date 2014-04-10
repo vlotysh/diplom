@@ -64,6 +64,12 @@
                             </a>
 
                         </li>
+                        
+                        <li class="<?php echo $userlist_link_menu; ?>">
+                             <a href="<?php echo url::site('profile/allusers'); ?>">
+                                <?php echo __('userlist'); ?>
+                            </a>
+                        </li>
 
 
                     </ul>

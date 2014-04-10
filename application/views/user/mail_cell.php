@@ -1,4 +1,8 @@
-<?php  foreach ($ms_data as $md):?>
+
+<?php
+
+if(count($ms_data) > 0 && $ms_data) :
+foreach ($ms_data as $md):?>
 
 <tr <?php if($md['read'] == 0):?> class="bg-info" <?php endif;?>>
        
@@ -16,4 +20,9 @@
             </td>
         </tr>
       
-<?php  endforeach;?>
+<?php  endforeach; 
+else:?>
+        <p>У вас нет сообщений</p>
+        
+<?php endif; ?>
+

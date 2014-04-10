@@ -57,9 +57,9 @@ class Controller_User_Mail extends Controller_Application {
 
         $user = $this->auth->get_user();
 
-
+ 
         $pagination = Pagination::factory(array(
-                    
+     
                     'current_page' => array('source' => 'query_string', 'key' => 'page'), // source: "query_string" or "route"
                     'total_items' => $count,
                     'items_per_page' => 10,

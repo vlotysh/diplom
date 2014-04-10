@@ -48,6 +48,7 @@ class Controller_Primary extends Controller_Template {
         $this->template->file_class_link_menu = '';
         $this->template->message_class_link_menu = '';
         $this->template->mail_class_link_menu = '';
+        $this->template->userlist_link_menu = '';
         $this->template->author = 'I am';
         $this->template->langg = '';
         $this->template->lang_class_link_menu = '';
