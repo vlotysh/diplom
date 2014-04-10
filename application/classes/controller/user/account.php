@@ -27,7 +27,7 @@ class Controller_User_Account extends Controller_Primary {
                         $remember = TRUE;
 		
 			// if the form is valid and the username and password matches
-			if ($post->check() && Auth::instance()->login($post['username'], $post['password'],$remember))
+			if ( Auth::instance()->login($post['username'], $post['password'],$remember))
 			{
 				$id = Auth::instance()->get_user()->id;
 				
