@@ -16,7 +16,8 @@
                     <?php foreach ($files as $file) : /** @var Model_File $file **/ ?>
                         <tr>
                             <td class="type"><img src="<?php echo URL::base('http') ?>public/icons/16px/<?php echo $file->type ?>.png"></td>
-                            <td class="name<?php echo $file->id ?>"><a href="<?php echo URL::base('http') ?><?php echo $file->src ?>"><?php echo $file->file ?></a></td>
+                            <td class="name<?php echo $file->id ?>"><a href="<?php echo URL::base('').'file/download/' ?><?php echo $file->id ?>"><?php echo $file->file ?></a><br>
+                                <small>Прямая ссылка :</small> <?php echo $_SERVER['HTTP_HOST'].'/file/download/' ?><?php echo $file->id ?></td>
                             
                             <td class="date"><?= HTML::rusTime($file->date);?></td>
                             <td class="size"><?php echo Text::bytes($file->size) ?></td>

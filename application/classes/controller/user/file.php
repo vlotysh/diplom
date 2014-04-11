@@ -99,4 +99,15 @@ class Controller_User_File extends Controller_Application {
         }
         ##Auth::instance()->get_user()->id;
     }
+    
+     public function action_download() {
+         $id = $this->request->param('id');
+         $file = ORM::factory('file',$id);
+   
+     $src = $file->src;
+
+    // $this->$request->send_file('uploads/201404/example9bd3_a190.zip');
+     Response::factory()->send_file($src);
+         
+     }
 }
