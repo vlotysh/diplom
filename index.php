@@ -8,6 +8,7 @@
  * @see  http://kohanaframework.org/guide/about.install#application
  */
 $application = 'application';
+
 //$application = '../../../k3/ko_ap';
 
 /**
