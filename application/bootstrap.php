@@ -57,7 +57,7 @@ ini_set('unserialize_callback_func', 'spl_autoload_call');
  * Set the default language
  * Язык по-умолчанию
  */
-I18n::lang('ru-ru');
+I18n::lang('ua');
 
 /**
  * Set Kohana::$environment if a 'KOHANA_ENV' environment variable has been supplied.
