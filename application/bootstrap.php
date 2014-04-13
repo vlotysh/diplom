@@ -7,6 +7,7 @@ defined('SYSPATH') or die('No direct script access.');
 // Загрузка класса ядра
 require SYSPATH . 'classes/kohana/core' . EXT;
 
+
 if (is_file(APPPATH . 'classes/kohana' . EXT)) {
     // Application extends the core
     //  Приложение расширяющее ядро
