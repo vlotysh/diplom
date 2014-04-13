@@ -42,4 +42,5 @@ return array(
     'Upload' => 'Upload',
     'Login_headering' => 'Please enter your login information below:',
     'userlist' => 'User list',
+    'Search' => 'Search',
 );

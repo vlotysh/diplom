@@ -55,6 +55,10 @@ class Controller_Primary extends Controller_Template {
         $this->template->page_name = NULL;
         $this->template->msCount = 0;
         
+        /*
+        $this->template->errors = Session::instance()->get_once('errors', array());
+        $this->template->message = Session::instance()->get_once('message', array());
+          */       
         //Роуты для картинок и тд
         $this->template->srcImage = URL::base().'media/images/';
         $this->template->srcStyle = URL::base().'media/css/';

@@ -7,7 +7,6 @@ class Controller_User_Profile extends Controller_Application {
     public function before() {
         parent::before();
        
-       
     }
 
     
@@ -30,6 +29,7 @@ class Controller_User_Profile extends Controller_Application {
         echo $familiya;
         exit();*/
     }
+    
     public function action_allusers() {
         
         $this->template->userlist_link_menu = 'active';
@@ -46,17 +46,35 @@ class Controller_User_Profile extends Controller_Application {
         $pagination->route_params(array('controller' => $this->request->controller(), 'action' => $this->request->action() ));
         
         
-        $find = Model::factory('users')->find_users('Вл');
+        
        
         $data['per_page'] = $pagination->items_per_page;
         $data['users'] = Model::factory('users')->find_all($pagination->items_per_page, $pagination->offset);
         $data['pagination'] = $pagination->render();
         
+        $error = Session::instance()->get_once('error');
         
-        $this->template->content = View::factory('user/userlist',$data);
+        $this->template->content = View::factory('user/userlist',$data)->bind('error', $error);
     
     }
     
+     public function action_usersearch() {
+         
+         $this->template->userlist_link_menu = 'active';
+         
+         $query = $this->request->post('query');
+         if($query == '') {
+            
+             Session::instance()->set('error', 'Нет данных для поиска');
+             $this->request->redirect('profile/allusers');
+         }
+         $data['query'] = $query;
+         
+         $data['users'] = Model::factory('users')->find_users($query);
+         
+         $this->template->content = View::factory('user/userlist',$data);
+     }
+     
     public function action_user(){
       
         $id = $this->request->param('id');
