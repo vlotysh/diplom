@@ -1,5 +1,4 @@
-# Kohana PHP Framework, version 3.2 (development)
+# Мой дипломный проект на основе Kohana PHP Framework
 
-This is the current development version of [Kohana](http://kohanaframework.org/).
+Автор, программист, дизайнер и просто красавец [Лотыш Владислав](http://kohanaframework.org/).
 
-For the most current release, see the 3.1/master branch.
