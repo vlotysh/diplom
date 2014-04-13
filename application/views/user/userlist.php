@@ -4,9 +4,9 @@
                 <input type="text" placeholder="..." name="query" class="form-control" required="required">
             <input type="submit" value="<?=__('Search')?>" class="btn btn-primary">
             </div>
-  
+            <? if(isset($error)):?>
                 <p class="error"><?php echo HTML::chars($error) ?></p>
-          
+          <?  endif;?>
             </form>
 
 <?php if(isset($query)) :?>
