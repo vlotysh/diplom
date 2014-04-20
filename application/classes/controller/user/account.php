@@ -14,8 +14,7 @@ class Controller_User_Account extends Controller_Primary {
                  
                 }
 				
-                
-             
+                            
 		// received the POST
 		if (isset($_POST) AND Valid::not_empty($_POST)) 
                 {

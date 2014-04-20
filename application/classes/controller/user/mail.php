@@ -77,12 +77,8 @@ class Controller_User_Mail extends Controller_Application {
         $pagee = $pagination->render();
         $pms = View::factory('user/mail_cell')
                 ->bind('ms_data', $ms_data)
-                ->bind('count', $value)
-                
+                ->bind('count', $value)       
                 ->render();
-
-
-
 
         $mail_inbox = View::factory('user/mail_index')
                 ->bind('private_messages', $private_messages)

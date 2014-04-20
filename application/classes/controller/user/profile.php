@@ -6,6 +6,8 @@ class Controller_User_Profile extends Controller_Application {
     
     public function before() {
         parent::before();
+        
+        $this->user  = Auth::instance()->get_user();
        
     }
 
@@ -15,8 +17,8 @@ class Controller_User_Profile extends Controller_Application {
         $this->template->profile_class_link_menu = 'active';
         
         $this->template->title =  'Страничка пользователя';
-        $this->template->content = Auth::instance()->get_user()->id;
-        $id = Auth::instance()->get_user()->id;
+        $this->template->content = View::factory('user/personal_page');
+        $id = $this->user->id;
 //       / $info = ORM::factory('base')->getUsersById(13);
     
 //        echo View::factory('profiler/stats');
@@ -86,12 +88,12 @@ class Controller_User_Profile extends Controller_Application {
         
       # $info1['info'] = json_decode($info1['info']);
         
-        if( $this->auth->get_user()->id == $id ) {
+        if( $this->user->id == $id ) {
             $url = URL::base().'/profile';
             $this->request->redirect($url);
         }
         
-        $id_carent = $this->auth->get_user()->id;
+        $id_carent = $this->user->id;
         $massege_form = View::factory('user/mail_form')
                 ->bind('recipient_id',$id)
                 ->bind('sender_id',$id_carent)
@@ -115,12 +117,83 @@ class Controller_User_Profile extends Controller_Application {
         $this->template->content = $user_page ;
         
     }
-          //Обновления статус онлайн
+    
+    
+    public function action_settings() {
+        $user_info = Model::factory('users')->getUserById($this->user->id);
+
+        $this->template->content = View::factory('user/user_settings',array('user_info' => $user_info));
+        
+    }
+    
+    public function action_avatar() {
+        if ($this->request->method() == Request::POST)
+        {
+            if (isset($_FILES['avatar']))
+            {
+                if($filename = $this->_save_image($_FILES['avatar'])) {
+                  $user =  ORM::factory('user',$this->user->id);
+        $user->avatar = $filename;
+        $user->save();
+                    
+                    $this->request->redirect('profile');
+                };
+                
+                
+                
+                
+            }
+        }
+ 
+        if ( !$filename)
+        {
+            $error_message = 'There was a problem while uploading the image.
+                Make sure it is uploaded and must be JPG/PNG/GIF file.';
+        }
+    }
+    
+     protected function _save_image($image)
+    {
+        if (
+            ! Upload::valid($image) OR
+            ! Upload::not_empty($image) OR
+            ! Upload::type($image, array('jpg', 'jpeg', 'png', 'gif')))
+        {
+            return FALSE;
+        }
+ 
+        $directory = DOCROOT.'uploads/avatars/';
+       
+        if ($file = Upload::save($image, NULL, $directory))
+        {
+            
+            $img = Image::factory($file);
+            $filename = strtolower(Text::random('alnum', 20)).'.jpg';
+            
+           
+            $img->resize(400,NULL, Image::AUTO)
+                ->save($directory.$filename);
+            
+            
+            $img->resize(100,NULL, Image::AUTO)
+                ->crop(100,100)
+                ->save($directory.'/thumb/'.$filename);
+ 
+            // Delete the temporary file
+            unlink($file);
+ 
+            return $filename;
+        }
+ 
+        return FALSE;
+    }
+
+    //Обновления статус онлайн
     public function action_online() {
    
         if($this->request->is_ajax()){
-            if($this->auth->get_user()) {
-                $result = ORM::factory('user',$this->auth->get_user()->id)->set('last_activity', time())->save();
+            if($this->user) {
+                $result = ORM::factory('user',$this->user->id)->set('last_activity', time())->save();
                 if($result) $res['status'] = 1;
                 else $res['status'] = 0;
                 
