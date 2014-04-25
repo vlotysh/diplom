@@ -19,12 +19,13 @@ class Model_Mail extends Model_Base {
             $inboxOutbox = 'sender_id';
         }
 
-        $query = DB::select('mails.id','mails.title','mails.sender_id','mails.recipient_id','mails.sinopsis','mails.content','mails.read','mails.date','user_info.fio','user_info.user_id')
+        $query = DB::select('mails.id','mails.title','mails.sender_id','mails.recipient_id','mails.sinopsis','mails.content','mails.read','mails.date','user_info.fio','user_info.user_id','users.avatar')
                 ->from('mails')
                 ->order_by('mails.date', 'DESC')
                 ->join('user_info')
                 ->on('mails.' . $saider, ' = ', 'user_info.user_id')
-                
+                ->join('users')
+                ->on('users.id','=','user_info.user_id')
                 ->where('mails.'. $inboxOutbox, '=', $user_id)
                 
                 ->offset($offset)

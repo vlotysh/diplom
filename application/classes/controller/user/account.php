@@ -51,8 +51,7 @@ class Controller_User_Account extends Controller_Primary {
 			->bind('post', $post)
 			->bind('errors', $errors)
 			->bind('loginerrors', $loginerrors);
-    
-                
+  
     }
     
     public function action_logout()

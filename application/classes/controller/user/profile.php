@@ -88,10 +88,6 @@ class Controller_User_Profile extends Controller_Application {
         
       # $info1['info'] = json_decode($info1['info']);
         
-        if( $this->user->id == $id ) {
-            $url = URL::base().'/profile';
-            $this->request->redirect($url);
-        }
         
         $id_carent = $this->user->id;
         $massege_form = View::factory('user/mail_form')
@@ -101,7 +97,7 @@ class Controller_User_Profile extends Controller_Application {
 
      
         $user_page = View::factory('user/user')
-                ->bind('massege',$massege)
+                ->bind('user_id',$user_id)
                 ->bind('user_info',$user_info )
                 ->bind('massege_form',$massege_form)
                 ->bind('online',$online);
@@ -111,7 +107,7 @@ class Controller_User_Profile extends Controller_Application {
       
         $online = ((time() - $user_info->last_activity) <= 180) ? TRUE : FALSE;
         
-        $massege = 'Пользователь с id '.$id;
+        $user_id = $id;
  
         $this->template->title =  $user_info->username;
         $this->template->content = $user_page ;

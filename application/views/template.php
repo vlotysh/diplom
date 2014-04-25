@@ -52,7 +52,7 @@
                         </li>
 
                         <li class="<?php echo $profile_class_link_menu; ?>">
-                            <a href="<?php echo url::site('profile'); ?>">
+                            <a href="<?php echo url::site('user'.$auth->get_user()->id); ?>">
                                 <?php echo __('Profile'); ?>
                             </a>
 
