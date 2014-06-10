@@ -1,1 +1,0 @@
-<a href="profile/settings">Настройки</a>
