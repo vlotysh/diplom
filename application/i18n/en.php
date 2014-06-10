@@ -7,8 +7,8 @@ return array(
     'ua' => 'Український',
     'jp' => 'Japanese',
     'Create an account' => 'Create an account',
-    'Login' => 'Login',
-    'Logout' => 'Logout',
+    'Login' => 'Sign in',
+    'Logout' => 'Sign up',
     'ABOUT'	=> 'ABOUT',
 	'FAQ'	=> 'FAQ',
 	':field must not be empty'		=> ':field must not be empty',
@@ -43,4 +43,6 @@ return array(
     'Login_headering' => 'Please enter your login information below:',
     'userlist' => 'User list',
     'Search' => 'Search',
+    'Register' => 'Register',
+    'Register_headering' => 'Please enter your Registeration information below:',
 );

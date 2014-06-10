@@ -261,7 +261,7 @@ form #title {
     
 }
 .login_box {
-    margin: 10% auto 0;
+    margin: 4% auto 0;
 
     width: 360px;
     padding: 15px;
@@ -281,3 +281,49 @@ form #title {
     line-height: 16px;
     padding: 5px 5px;
 }
+
+.login_background .tabs {
+    display: block;
+    left: 36%;
+    position: absolute;
+    top: 26px;
+    width: 300px;
+}
+
+.login_background .tabs li a {
+    
+     color:  #7777AA;
+    display: block;
+   
+    width: 120px;
+     float: left;
+    background-color:#002A80;
+     padding: 5px;
+    border-radius: 22px 22px 0 0;
+}
+
+.login_background .tabs li.active a {
+      background-color: #CCCCFF;
+      
+}
+.login_background .tabs li a:hover{
+    text-decoration: none;
+    color: #fff;
+    
+}
+
+.login_background .tabs li a:focus{
+    text-decoration: none;
+    outline: 0px solid black;
+    
+}
+
+.login_background .well {
+    border: 0px solid black;
+}
+
+.login_background .tabs li {
+    text-align: center;
+    list-style-type: none;
+}
+

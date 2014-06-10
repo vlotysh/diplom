@@ -7,7 +7,7 @@ return array(
     'en' => 'English',
    
     'Create an account' => 'Зробити акаунт',
-    'Login' => 'Вхід',
+    'Login' => 'Аторизація',
     'Logout' => 'Вихід',
     'ABOUT'	=> 'О САЙТІ',
 	'FAQ'	=> 'Допомога',
@@ -42,6 +42,8 @@ return array(
     'Upload' => 'Завантажити',
      'Login_headering' => 'Ведь будь-ласка данні для входу на сайт:',
       'userlist' => 'Користувачі',
-    'Search' => 'Пошук'
+    'Search' => 'Пошук',
+    'Register' => 'Регістрація',
+    'Register_headering' => 'Ведь будь-ласка данні для регістрації на сайті:',
 );
 

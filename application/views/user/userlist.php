@@ -1,4 +1,4 @@
-   
+
         <form method="POST" action="<?=  URL::base()?>profile/usersearch" class="form-inline" role="form">
             <div class="form-group">
                 <input type="text" placeholder="..." name="query" class="form-control" required="required">
@@ -21,7 +21,7 @@
 <? $i = 1; foreach ($users as $user):?>
     <tr>
         <td><?=$i;?> </td>
-        <td> <a target="_blank" href="<?=  URL::base();?>user<?=$user['id'];?>"><?=$user['fio']?></a></td>
+        <td> <a target="_blank" href="<?=  URL::base();?>user<?=$user->id;?>"><?=$user->fio?></a></td>
           <td></td>
     </tr>
 

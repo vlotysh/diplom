@@ -7,12 +7,17 @@ return array(
     'en' => 'English',
     
     'Create an account' => 'Создать аккаунт',
-    'Login' => 'Вход',
+    'Login' => 'Авторизация',
     'Logout' => 'Выход',
     'ABOUT'	=> 'О САЙТЕ',
+     'password' => 'Пароль',
+     'password_confirm' => 'Повторить пароль',
 	'FAQ'	=> 'ПОМОЩЬ',
-	':field must not be empty'		=> ':поле не должно быть пустым',
+    ':field must be the same as :param2' => ':field должно быть таким же :param2',
+	':field must not be empty'		=> 'Поле \':field\' не должно быть пустым',
 	'user.password.pwdneusr'		=> 'Не должно быть таким же...',
+    'min_length'    => 'Поле \':field\' должно быть минимум :param2 длиной',
+    '_external.password_confirm' => 'Пароли должны совпадать',
     //pagination
     'First'=>'В начало',
     'Previous'=>'Назад',
@@ -44,4 +49,6 @@ return array(
      'Login_headering' => 'Введите пожалуйста данные для входа на сайт:',
     'userlist' => 'Пользователи',
     'Search' => 'Поиск',
+    'Register' => 'Регистрация',
+     'Register_headering' => 'Введите пожалуйста данные для регистрации на сайте:',
 );
