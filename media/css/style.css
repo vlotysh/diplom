@@ -261,7 +261,7 @@ form #title {
     
 }
 .login_box {
-    margin: 4% auto 0;
+    margin: 10% auto 0;
 
     width: 360px;
     padding: 15px;
@@ -280,111 +280,4 @@ form #title {
     height: 35px;
     line-height: 16px;
     padding: 5px 5px;
-}
-
-.login_background .tabs {
-    display: block;
-    left: 36%;
-    position: absolute;
-    top: 26px;
-    width: 300px;
-}
-
-.login_background .tabs li a {
-    
-     color:  #7777AA;
-    display: block;
-   
-    width: 120px;
-     float: left;
-    background-color:#002A80;
-     padding: 5px;
-    border-radius: 22px 22px 0 0;
-}
-
-.login_background .tabs li.active a {
-      background-color: #CCCCFF;
-      
-}
-.login_background .tabs li a:hover{
-    text-decoration: none;
-    color: #fff;
-    
-}
-
-.login_background .tabs li a:focus{
-    text-decoration: none;
-    outline: 0px solid black;
-    
-}
-
-.login_background .well {
-    border: 0px solid black;
-}
-
-.login_background .tabs li {
-    text-align: center;
-    list-style-type: none;
-}
-
-
-.error_tub {
-    z-index: 1000;
-    padding: 10px;
-    padding-top: 30px;
-    border-radius:22px 22px 0 0;
-    display: none;
-    width: 320px;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    font-size: 14px;
-    background-color: rgba(205, 67, 67, 0.4);
-}
-
-.error_tub .close {
- 
-    position: absolute;
-    top: 5px;
-    right: 63px;
-    width: 40px;
-    height: 20px;
-}
-
-.error_tub .one_error {
-    width: 100%;
-    padding: 10px;
-    border-bottom: 1px dashed black;
-}
-
-.mtub {
-    box-shadow:         -1px 0px 30px 0px rgba(50, 50, 50, 0.77);
-}
-
-.message_tub {
-    border-radius:0 0 22px 22px;
-    z-index: 1000;
-    padding: 10px;
-    padding-bottom: 30px;
-    display: none;
-    width: 320px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    font-size: 13px;
-    background-color: rgba(78, 195,55 , 0.4);
-}
-
-.message_tub .close {
-    bottom: 5px;
-    height: 20px;
-    position: absolute;
-    right: 36px;
-    width: 64px;
-}
-
-.message_tub .one_message {
-    width: 100%;
-    padding: 10px;
-    border-bottom: 1px dashed black;
 }

@@ -78,9 +78,7 @@ class Controller_User_Profile extends Controller_Application {
      }
      
     public function action_user(){
-
-        $this->template->profile_class_link_menu = 'active';
-        $this->template->title =  'Страничка пользователя';
+      
         $id = $this->request->param('id');
     
          # $arrayyy = array('fio' => 'Лотыш Владислав Николаевич','age' =>'25',);
@@ -101,19 +99,16 @@ class Controller_User_Profile extends Controller_Application {
         $user_page = View::factory('user/user')
                 ->bind('user_id',$user_id)
                 ->bind('user_info',$user_info )
-                ->bind('meta_info',$meta_info)
                 ->bind('massege_form',$massege_form)
                 ->bind('online',$online);
         
         $user_info = ORM::factory('user',$id);
-        
-        $meta_info = Model::factory('users')->getUserById($id);
        // echo time() - $user_info->last_activity; exit();
       
         $online = ((time() - $user_info->last_activity) <= 180) ? TRUE : FALSE;
         
         $user_id = $id;
-        
+ 
         $this->template->title =  $user_info->username;
         $this->template->content = $user_page ;
         
@@ -139,7 +134,10 @@ class Controller_User_Profile extends Controller_Application {
                     
                     $this->request->redirect('profile');
                 };
-               
+                
+                
+                
+                
             }
         }
  
@@ -167,7 +165,8 @@ class Controller_User_Profile extends Controller_Application {
             
             $img = Image::factory($file);
             $filename = strtolower(Text::random('alnum', 20)).'.jpg';
-          
+            
+           
             $img->resize(400,NULL, Image::AUTO)
                 ->save($directory.$filename);
             

@@ -8,9 +8,6 @@ class Controller_User_File extends Controller_Application {
         parent::before();
         $this->template->title = __('File');
         $this->template->file_class_link_menu = 'active';
-        
-        $user = ORM::factory('user');
-
     }
 
     public function action_view() {
@@ -20,8 +17,6 @@ class Controller_User_File extends Controller_Application {
             'files' => ORM::factory('File')->where('user_id','=',$this->auth->get_user()->id)->order_by('id','DESC')->find_all(),
             'captcha' => Captcha::instance(),
             // errors from user session
-            
-           
             'errors' => Session::instance()->get_once('errors', array()),
             // message from user session
             'message' => Session::instance()->get_once('message', array()),

@@ -188,13 +188,6 @@ Kohana::modules(array(
 
 
 
-Route::set('registration', 'registration')
-        ->defaults(array(
-            'directory' => 'user',
-            'controller' => 'account',
-            'action' => 'registration',
-        ));
-
 Route::set('login', 'login')
         ->defaults(array(
             'directory' => 'user',

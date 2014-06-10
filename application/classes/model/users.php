@@ -12,22 +12,21 @@ class Model_Users extends Model {
                 ->order_by('user_info.fio')
                 ->offset($offset)
                 ->limit($limit)
-                ->as_object()
-                ->execute();
-                
+                ->execute()
+                ->as_array();
         
         return $query;
     }
     
-     public function getUserById($user_id = NULL) {
+     public function getUserById($user_id = '') {
         $query = DB::select('users.*','user_info.id', 'user_info.user_id', 'user_info.fio','user_info.info')
                 ->from('users')
                 ->where('users.id', '=', $user_id)
                 ->join('user_info')
                 ->on('users.id', '=', 'user_info.user_id')
                 ->limit(1)
-                ->as_object()
-                ->execute();
+                ->execute()
+                ->as_array();
 
 
         if ($query) {
@@ -45,9 +44,8 @@ class Model_Users extends Model {
                 ->on('users.id', '=', 'user_info.user_id')
                 ->order_by('user_info.fio')
                 ->where('user_info.fio', 'LIKE', '%'.$user_name.'%')
-                 ->as_object()
-                 ->execute();
-                
+                ->execute()
+                ->as_array();
         
         return $query;
      }

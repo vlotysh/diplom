@@ -1,4 +1,4 @@
-<div><img src="/uploads/avatars/<?=$user_info->avatar?>"><div>
+<div><img src="/uploads/avatars/<?=$user_info['avatar']?>"><div>
 
         <div>
             <form action="/profile/avatar" method="POST" enctype="multipart/form-data">

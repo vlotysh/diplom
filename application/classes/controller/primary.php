@@ -11,8 +11,10 @@ class Controller_Primary extends Controller_Template {
         parent::before();
         
         $this->auth = Auth::instance();
-
+         
+        
         //last_activity функция, для проверки на онлайн
+       
 
         if ($this->auto_render) {
             // keep the last url if it's not home/language
@@ -33,8 +35,9 @@ class Controller_Primary extends Controller_Template {
         //Модели 
      /*   $this->massege_model = ORM::factory('message');
         $this->pm = ORM::factory('pm');*/
-        $this->MailModel = ORM::factory('mail');
-   
+         $this->MailModel = ORM::factory('mail');
+        
+     
         $this->template->auth = Auth::instance();
         $this->template->lang = I18n::lang();
         $this->template->content = '';
@@ -60,14 +63,6 @@ class Controller_Primary extends Controller_Template {
         $this->template->srcImage = URL::base().'media/images/';
         $this->template->srcStyle = URL::base().'media/css/';
         $this->template->srcScript = URL::base().'media/js/';
-        
-       /* 
-         * Eror or massege 
-         *          */
-        
-        $this->template->errors = Session::instance()->get_once('errors', array());
-        $this->template->errors_auth = Session::instance()->get_once('errors_auth', array());
-        $this->template->message = Session::instance()->get_once('message', array());
 
         $this->template->styles = array(
             'bootstrap.min.css',
