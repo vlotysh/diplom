@@ -20,7 +20,7 @@ class Controller_User_Account extends Controller_Primary {
                     ->rule('password', 'not_empty')
                     ->rule('password', 'min_length', array(':value', 3));
             $remember = TRUE;
-            
+
             // if the form is valid and the username and password matches
             if (Auth::instance()->login($post['username'], $post['password'], $remember)) {
                 $id = Auth::instance()->get_user()->id;
@@ -40,39 +40,42 @@ class Controller_User_Account extends Controller_Primary {
                 ->bind('post', $post)
                 ->bind('errors', $errors)
                 ->bind('loginerrors', $loginerrors)
-                ->bind('errors_auth' , $err);
+                ->bind('errors_auth', $err);
     }
 
-    public function action_registration() 
-{
-        if (isset($_POST))
-        {
+    public function action_registration() {
+        if (isset($_POST)) {
+            
+            if ($_POST['secret_code'] != 121790) {
+    
+                $errors['code'] = 'Наверный секретный код';
+                Session::instance()->set('errors_auth', $errors);
+                $this->request->redirect('login'); 
+            }
+
             $data = Arr::extract($_POST, array('username', 'email', 'password', 'password_confirm'));
 
             $user = ORM::factory('user');
-            try
-            {
-                $user->create_user($data, array('username', 'email', 'password', /*'language', 'created', 'confirm', 'source'*/));
+            try {
+                $user->create_user($data, array('username', 'email', 'password', /* 'language', 'created', 'confirm', 'source' */));
                 $role = ORM::factory('role')->where('name', '=', 'login')->find();
                 $user->add('roles', $role);
                 $data['complate'] = TRUE;
-            }
-            catch (ORM_Validation_Exception $e)
-            {
+            } catch (ORM_Validation_Exception $e) {
                 $errors = $e->errors('auth');
-               
 
 
-                    Session::instance()->set('errors_auth', $errors);
-         
+
+                Session::instance()->set('errors_auth', $errors);
+
                 $data['complate'] = FALSE;
-                
-                $this->request->redirect('file');
-            }
-        }
-      
-    }
 
+               
+            }
+            
+             $this->request->redirect('login');
+        }
+    }
 
     public function action_logout() {
         Auth::instance()->logout();

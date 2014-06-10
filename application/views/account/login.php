@@ -45,10 +45,10 @@
         <?php echo Form::open('',array('class'=> 'form-signin')); ?>
 
        <p> 
-        <?php echo Form::input('username','',array('class' => 'form-control','placeholder'=>'Login')); ?></p>
+        <?php echo Form::input('username','',array('class' => 'form-control','placeholder'=>'Login','required'=>'required')); ?></p>
 <p>
      
-        <?php echo Form::password('password','',array('class' => 'form-control','placeholder'=>'Password')); ?></p>
+        <?php echo Form::password('password','',array('class' => 'form-control','placeholder'=>'Password','required'=>'required')); ?></p>
         
      
      <p>
@@ -72,26 +72,30 @@
                          <?= Form::open('registration'); ?>
 
 
-                      <p><?= Form::input('username', '',array('class' => 'form-control','placeholder'=>'Login','autocomplete'=> 'off')); ?></p>
+                      <p><?= Form::input('username', '',array('class' => 'form-control','placeholder'=>'Login','autocomplete'=> 'off','required'=>'required')); ?></p>
 <div class="error">
 	<?= Arr::get($errors_auth, 'username'); ?>
 </div>
 
 
-                      <p><?= Form::input('email', '',array('class' => 'form-control','placeholder'=>'E-mail','autocomplete'=> 'off')); ?></p>
+                      <p><?= Form::input('email', '',array('class' => 'form-control','placeholder'=>'E-mail','autocomplete'=> 'off','required'=>'required')); ?></p>
 <div class="error">
 	<?= Arr::get($errors_auth, 'email'); ?>
 </div>
 
-                      <p><?= Form::password('password','',array('class' => 'form-control','placeholder'=>'Password')); ?></p>
+                      <p><?= Form::password('password','',array('class' => 'form-control','placeholder'=>'Password','required'=>'required')); ?></p>
 <div class="error">
 	<?= Arr::path($errors_auth, '_external.password'); ?>
 </div>
 
-                      <p><?= Form::password('password_confirm','',array('class' => 'form-control','placeholder'=>'Repeat password','autocomplete'=> 'off')); ?></p>
+                      <p><?= Form::password('password_confirm','',array('class' => 'form-control','placeholder'=>'Repeat password','autocomplete'=> 'off','required'=>'required')); ?></p>
 <div class="error">
 	<?= Arr::path($errors_auth, '_external.password_confirm'); ?>
 </div>
+                      <div class="error">
+	<?= Arr::path($errors_auth, 'code'); ?>
+</div>
+                      <p><?= Form::input('secret_code', '',array('class' => 'form-control','placeholder'=>'secret_code','autocomplete'=> 'off','required'=>'required')); ?></p>
 
                       <p><?php echo Form::submit('submit', 'Sign up',array('class'=> 'btn btn-lg btn-primary btn-block')); ?></p>
 <?= Form::close(); ?>
