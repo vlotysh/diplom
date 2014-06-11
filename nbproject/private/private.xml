@@ -3,12 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/diplom/application/views/user/user.php</file>
-            <file>file:/C:/wamp/www/diplom/application/classes/controller/user/mail.php</file>
-            <file>file:/C:/wamp/www/diplom/application/views/user/user_settings.php</file>
-            <file>file:/C:/wamp/www/diplom/application/classes/model/users.php</file>
-            <file>file:/C:/wamp/www/diplom/application/classes/controller/user/profile.php</file>
-            <file>file:/C:/wamp/www/diplom/application/views/user/userlist.php</file>
+            <file>file:/C:/wamp/www/diplom/application/views/account/login.php</file>
+            <file>file:/C:/wamp/www/diplom/application/classes/controller/user/account.php</file>
         </group>
     </open-files>
 </project-private>
