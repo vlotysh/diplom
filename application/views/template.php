@@ -43,10 +43,23 @@
                 $(activeTab).show(); //Fade in the active ID content
                 return false;
             });
+            
+            
+            
+            $('.error_tub').slideDown();
+            
+             $('.message_tub').slideDown();
+
+
+  $('.mtub .close').click(function() {
+            $(this).parent().slideUp();
+            return false;
+        });
 
         });
         
-
+        
+      
 
     </script>
 
@@ -122,7 +135,45 @@
         <?php ProfilerToolbar::render(true); ?>
 
     <?php endif; ?>
-
+    
+     <?php if (count($errors) > 0 OR count($errors_auth) > 0 ): ?>
+    <div class="error_tub mtub">
+        <a href="#" class="close">Закрыть</a>        
+      
+        <?php foreach ($errors as $error) : ?>
+                <div class="one_error"><b>Ошибка!</b><br> <?php echo HTML::chars($error) ?></div>
+        <?php endforeach; ?>
+                
+                 <?php foreach ($errors_auth as $error) : ?>
+      
+                
+                <?if(gettype($error) == "array" ):?>
+                <?php foreach ($error as $e) : ?>
+                <div class="one_error"><b>Ошибка!</b><br> <?php echo HTML::chars($e) ?></div>
+                <?  endforeach;?>
+                
+                <?  else:?>
+                <div class="one_error"><b>Ошибка!</b><br> <?php echo HTML::chars($error) ?></div>
+                
+                <?  endif;?>
+        <?php endforeach; ?>
+        
+    </div>
+    
+    <?  endif;?>
+    
+    
+    
+     <?php if (count($message) > 0): ?>
+      <div class="message_tub mtub">
+        <a class="close">Закрыть</a> 
+       
+            <?php foreach ($message as $mes) : ?>
+                <div class="one_message"><b>Сообщение</b><br><?php echo HTML::chars($mes) ?></div>
+            <?php endforeach; ?>
+               
+    </div>
+    <?  endif;?>
  
 </body>
 </html>

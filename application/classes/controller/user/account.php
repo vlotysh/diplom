@@ -28,10 +28,16 @@ class Controller_User_Account extends Controller_Primary {
                 $this->request->redirect('user' . $id);
             } else {
                 // wrong username or password (but form is valid)
-                $loginerrors = __('Wrong username or password');
+                
+                
+                $err[] = __('Wrong username or password');
+
+                    Session::instance()->set('errors', $err);
+                    
             }
             // validation failed, collect the errors
             $errors = $post->errors('user');
+            $this->request->redirect('login');
         }
         // display
         $err = Session::instance()->get_once('errors_auth', array());
@@ -46,14 +52,7 @@ class Controller_User_Account extends Controller_Primary {
     public function action_registration() {
         if (isset($_POST)) {
             
-            if ($_POST['secret_code'] != 121790) {
-    
-                $errors['code'] = 'Наверный секретный код';
-                Session::instance()->set('errors_auth', $errors);
-                $this->request->redirect('login'); 
-            }
-
-            $data = Arr::extract($_POST, array('username', 'email', 'password', 'password_confirm'));
+                       $data = Arr::extract($_POST, array('username', 'email', 'password', 'password_confirm'));
 
             $user = ORM::factory('user');
             try {
@@ -64,7 +63,9 @@ class Controller_User_Account extends Controller_Primary {
             } catch (ORM_Validation_Exception $e) {
                 $errors = $e->errors('auth');
 
-
+                if ($_POST['secret_code'] != 121790) {
+                    $errors['code'] = 'Наверный секретный код!';
+                }
 
                 Session::instance()->set('errors_auth', $errors);
 

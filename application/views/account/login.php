@@ -25,23 +25,10 @@
 	
   <div class="login_box well">
         <h1><?php echo __('Login'); ?></h1>
-        <?php if ($errors || $loginerrors) { ?>
-            <p class="message">Some errors were encountered, please check the details you entered.</p>
-            <p>
-            <ul class="errors">
-                <?php foreach ($errors as $message): ?>
-                    <li><?php echo $message ?></li>
-                <?php endforeach ?>
-                <?php
-                if (isset($loginerrors) && empty($errors)) {
-                    echo $loginerrors;
-                }
-                ?>
-            </ul>
-            </p>
-        <?php } else { ?>
+        
             <p><?=__('Login_headering')?></p>
-        <?php } ?>
+
+            
         <?php echo Form::open('',array('class'=> 'form-signin')); ?>
 
        <p> 
@@ -52,7 +39,7 @@
         
      
      <p>
-        <?php echo Form::submit('submit', 'Login',array('class'=> 'btn btn-lg btn-primary btn-block')); ?></p>
+        <?php echo Form::submit('submit', __('Enter'),array('class'=> 'btn btn-lg btn-primary btn-block')); ?></p>
 
 <?php echo Form::close(); ?>
      
@@ -97,7 +84,7 @@
 </div>
                       <p><?= Form::input('secret_code', '',array('class' => 'form-control','placeholder'=>'secret_code','autocomplete'=> 'off','required'=>'required')); ?></p>
 
-                      <p><?php echo Form::submit('submit', 'Sign up',array('class'=> 'btn btn-lg btn-primary btn-block')); ?></p>
+                      <p><?php echo Form::submit('submit', __('Reg'),array('class'=> 'btn btn-lg btn-primary btn-block')); ?></p>
 <?= Form::close(); ?>
                   </div>
 			</div><!-- end of #tab2 -->

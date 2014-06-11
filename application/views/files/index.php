@@ -32,9 +32,7 @@
             </table>
  
             <h2>Upload</h2>
-            <?php foreach ($message as $mes) : ?>
-                <div class="error"><?php echo HTML::chars($mes) ?></div>
-                 <?php endforeach; ?>
+          
                
                    <?php foreach ($errors as $error) : ?>
                 <div class="error"><?php echo HTML::chars($error) ?></div>
