@@ -10,7 +10,17 @@ class Controller_User_Mail extends Controller_Application {
         $this->template->title = __('Mail');
         $this->template->mail_class_link_menu = 'active';
     }
-
+    
+    public function action_cachetest() {
+           $data = 1111111;
+         if (Cache::instance('memcache')->set('foo', $data, 600))
+	   {
+	          // Cache was set successfully
+             
+             
+                  echo Cache::instance('memcache')->get('foo', FALSE);exit();
+	      }
+     }
     public function action_email() {
         $config = Kohana::$config->load('email');
 

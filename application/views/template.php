@@ -12,8 +12,8 @@
       <!--  <link rel="stylesheet/less" type="text/css" href="<?php echo url::base(); ?>media/css/styles.less">-->
 
        <?php foreach ($scripts as $script) : ?>
-            <script src="<?php echo url::base(); ?>media/js/<?php echo $script; ?>.js" /></script>
-    <?php endforeach; ?>
+            <script src="<?php echo url::base(); ?>media/js/<?php echo $script; ?>.js" ></script>
+        <?php endforeach; ?>
     
     <script>
         /*if(device.windows()) {

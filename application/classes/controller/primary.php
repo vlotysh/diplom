@@ -9,7 +9,7 @@ class Controller_Primary extends Controller_Template {
     public function before() {
 
         parent::before();
-        
+      
         $this->auth = Auth::instance();
 
         //last_activity функция, для проверки на онлайн

@@ -24,18 +24,18 @@ return array(
 	 * @param   null    native: no options
 	 * @param   string  sendmail: executable path, with -bs or equivalent attached
 	 * @param   array   smtp: hostname, (username), (password), (port), (encryption)
-	*/    /*  
+	*/      
 //       'options' => NULL 
-         'options' => array('hostname' => 'smtp.gmail.com',
+          /*'options' => array('hostname' => 'smtp.gmail.com',
                                     'username' => 'vladislavlotysh@gmail.com',
                                     'password' => '1217vlad1217',
                                     'port'     => '465',
-                                    'encryption' => 'ssl' */  
+                                    'encryption' => 'ssl'*/  
         
-                 'options' => array('hostname' => 'mail.edusystem.in.ua',
+               'options' => array('hostname' => 'mail.edusystem.in.ua',
                                     'username' => 'admin@edusystem.in.ua',
                                     'password' => '121790',
-                                    'port'     => '25',
+                                    'port'     => '25', 
                           
          ));
 
