@@ -18,10 +18,10 @@ return array
 			 *
 			 * Ports and sockets may be appended to the hostname.
 			 */
-			'hostname'   => 'localhost',
+			'hostname'   => '91.234.34.250',
 			'database'   => 'kohanamvc',
-			'username'   => 'root',
-			'password'   => '',
+			'username'   => 'VladikKiller',
+			'password'   => '121790',
 			'persistent' => FALSE,
 		),
 		'table_prefix' => '',

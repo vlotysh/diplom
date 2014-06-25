@@ -49,7 +49,7 @@ class Controller_User_Mail extends Controller_Application {
 
     public function action_index() {
         
-       
+
         
         $section = $this->request->query('section');
    
@@ -76,11 +76,7 @@ class Controller_User_Mail extends Controller_Application {
                     ));
 
         //Инициализация параметров динамической загрузки
-
-
-
         $ms_data = $this->MailModel->getAllOutInBoxPm($user->id, $pagination->items_per_page, $pagination->offset, $type);
-
 
         //то тогда не показывать кнопку "Загрузить еще"
 
@@ -96,9 +92,16 @@ class Controller_User_Mail extends Controller_Application {
                 ->bind('privet_ms', $pms)
                 ->bind('pagination', $pagee)
                 ->bind('outbox', $outbox);
+        
+        if ($this->request->is_ajax()) {
+            echo $mail_inbox;
+            exit();
+        } else {
+            
+            $this->template->content = $mail_inbox;
+        }
 
- 
-        $this->template->content = $mail_inbox;
+      
     }
 
     /* Просмотр сообщений! */
