@@ -1,5 +1,5 @@
 
-<a href="mail">111</a>
+<a class="ajax" href="mail">111</a>
 ПРивет!
 
 
@@ -17,7 +17,7 @@ catch(e) {
 }
 
 
-$('a').click(function() {
+$('a.ajax').click(function() {
     
     var href = $(this).attr('href');
     changeHash(href);
