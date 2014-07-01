@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <?php foreach ($styles as $style) : ?>
-            <link rel="stylesheet/less" href="<?php echo url::base(); ?>media/css/<?php echo $style; ?>" />
+            <link rel="stylesheet" href="<?php echo url::base(); ?>media/css/<?php echo $style; ?>" />
         <?php endforeach; ?>
 
       <!--  <link rel="stylesheet/less" type="text/css" href="<?php echo url::base(); ?>media/css/styles.less">-->

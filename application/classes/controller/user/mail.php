@@ -48,11 +48,8 @@ class Controller_User_Mail extends Controller_Application {
     }
 
     public function action_index() {
-        
 
-        
         $section = $this->request->query('section');
-   
 
         $user = $this->auth->get_user()->id;
         if ($section != '') {
