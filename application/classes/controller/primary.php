@@ -51,6 +51,7 @@ class Controller_Primary extends Controller_Template {
         $this->template->lang_class_link_menu = '';
         $this->template->page_name = NULL;
         $this->template->msCount = 0;
+        $this->template->version = 0.3;
 
         /*
           $this->template->errors = Session::instance()->get_once('errors', array());
