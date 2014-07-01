@@ -147,6 +147,19 @@ span.round {
     color: #fff;
 }
 
+.mail_cell .bg-info {
+    background-color: rgba(28, 183, 236, 0.1);
+}
+
+.badge {
+    
+    display: block;
+    position: absolute;
+    right: 10px;
+    top:20%;
+    background-color: #4390df;
+    padding: 2px 5px;
+}
 
 
 .mail_cell {
