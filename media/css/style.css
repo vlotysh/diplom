@@ -49,7 +49,8 @@ Purpose of the stylesheet follows.
 }
 
 .container-fluid {
-    padding-left:0;
+    padding:0;
+    margin: 0;
 }
 
 .row-fluid {
@@ -79,7 +80,7 @@ Purpose of the stylesheet follows.
 
 
 .nav li, .nav-pills li , .nav-stacked li {
-    width: 90%;
+    width: 100%;
 }
 .sidebar .nav li.active a{
     background-color: #faa732;
@@ -129,12 +130,12 @@ span.round {
 }
 
 .pm_section li > a {
-     border-radius: 7px 7px 0 0;
+    border-radius: 7px 7px 0 0;
     display: block;
     padding: 10px;
     vertical-align: middle;
     height: 100%;
-   
+
 }
 
 .pm_section li > a:hover {
@@ -187,7 +188,7 @@ span.round {
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 #load_pm:hover {
-   
+
     transition: all 0.2s linear;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-image: -moz-linear-gradient(center top , #ED8D07, #E2B06A);
@@ -250,27 +251,88 @@ form #title {
 */
 
 
-.login_background {
+.tab-control {
+    width: 400px;
+    height: 400px;
+    margin: auto;
     position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.login_wrap {
     width: 100%;
     height: 100%;
-    z-index: 1000;
-    background-image: url('/media/images/gray.jpg');
+    background-color: #555555 !important;
 }
-.login_box input {
-    
+
+.login_wrap .frames {
+    background-color: #fff;
 }
 .login_box {
-    margin: 4% auto 0;
-
-    width: 360px;
-    padding: 15px;
     text-align: center;
     z-index: 1001;
-    background-color: #ccccff;
-    border-radius: 22px;
     color: #002a80;
 }
+.castom_tabs:after, .castom_tabs:before {
+    content: "";
+    display: table;
+    clear: both;
+}
+.castom_tabs {
+    margin: 0;
+    color: #000000;
+    font-family: 'Segoe UI_','Open Sans',Verdana,Arial,Helvetica,sans-serif;
+    font-size: 11pt;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0.02em;
+    position: relative;
+    top:1px;
+    line-height: 15pt;
+    margin-left: 5px;
+    padding-left: 15px;
+}
+
+
+.castom_tabs li {
+    background-color: #ffffff;
+    display: block;
+    float: left;
+    margin-left: 5px;
+    position: relative;
+
+}
+.castom_tabs li a {
+    color: inherit;
+    display: block;
+    float: left;
+    left: 0;
+    padding: 5px 10px;
+    top: 0;
+    z-index: 10;
+}
+
+.castom_tabs li.active a {
+    background-color: #ffffff;
+    border-bottom-color: #ffffff;
+    border-top: 2px solid #e51400;
+}
+.castom_tabs li a {
+    background-color: #eeeeee;
+    border: 1px solid #eeeeee;
+    color: inherit;
+    display: block;
+    float: left;
+    left: 0;
+    padding: 5px 10px;
+    top: 0;
+    z-index: 10;
+
+}
+
 
 .login_box form {
     margin: 0;
@@ -278,55 +340,10 @@ form #title {
 .login_box input {
     font-size: 16px;
     height: 35px;
+    width: 100%;
     line-height: 16px;
     padding: 5px 5px;
 }
-
-.login_background .tabs {
-    display: block;
-    left: 36%;
-    position: absolute;
-    top: 26px;
-    width: 300px;
-}
-
-.login_background .tabs li a {
-    
-     color:  #7777AA;
-    display: block;
-   
-    width: 120px;
-     float: left;
-    background-color:#002A80;
-     padding: 5px;
-    border-radius: 22px 22px 0 0;
-}
-
-.login_background .tabs li.active a {
-      background-color: #CCCCFF;
-      
-}
-.login_background .tabs li a:hover{
-    text-decoration: none;
-    color: #fff;
-    
-}
-
-.login_background .tabs li a:focus{
-    text-decoration: none;
-    outline: 0px solid black;
-    
-}
-
-.login_background .well {
-    border: 0px solid black;
-}
-
-.login_background .tabs li {
-    text-align: center;
-    list-style-type: none;
-}
-
 
 .error_tub {
     z-index: 1000;
@@ -343,7 +360,7 @@ form #title {
 }
 
 .error_tub .close {
- 
+
     position: absolute;
     top: 5px;
     right: 63px;
@@ -388,3 +405,15 @@ form #title {
     padding: 10px;
     border-bottom: 1px dashed black;
 }
+
+
+.main {
+    width: 80%;
+    margin-left: 15%;
+}
+
+
+.metro .sidebar {
+    width: 15%;
+}
+

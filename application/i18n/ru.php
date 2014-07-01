@@ -16,6 +16,7 @@ return array(
     'password' => 'Пароль',
     'password_confirm' => 'Повторить пароль',
     'FAQ' => 'ПОМОЩЬ',
+     ':field must be a email address' => 'Неправильный формат email',
     ':field must be the same as :param2' => 'Пароли не совпадают',
     ':field must not be empty' => 'Поле \':field\' не должно быть пустым',
     'user.password.pwdneusr' => 'Не должно быть таким же...',

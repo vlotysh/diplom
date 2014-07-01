@@ -11,7 +11,6 @@ class Controller_User_Account extends Controller_Primary {
             $this->request->redirect($url);
         }
 
-
         // received the POST
         if (isset($_POST) AND Valid::not_empty($_POST)) {
             // validate the login form
@@ -28,38 +27,45 @@ class Controller_User_Account extends Controller_Primary {
                 $this->request->redirect('user' . $id);
             } else {
                 // wrong username or password (but form is valid)
-                
-                
+
+
                 $err[] = __('Wrong username or password');
 
-                    Session::instance()->set('errors', $err);
-                    
+                Session::instance()->set('errors', $err);
             }
             // validation failed, collect the errors
             $errors = $post->errors('user');
             $this->request->redirect('login');
         }
         // display
-        $err = Session::instance()->get_once('errors_auth', array());
         $this->template->title = __('Login');
         $this->template->login_box = View::factory('account/login')
                 ->bind('post', $post)
                 ->bind('errors', $errors)
-                ->bind('loginerrors', $loginerrors)
-                ->bind('errors_auth', $err);
+                ->bind('loginerrors', $loginerrors);
     }
 
     public function action_registration() {
-        if (isset($_POST)) {
-            
-                       $data = Arr::extract($_POST, array('username', 'email', 'password', 'password_confirm'));
+        if (Auth::instance()->logged_in()) {
+            $url = URL::base();
+            $this->request->redirect($url);
+        }
 
+        if (isset($_POST) AND Valid::not_empty($_POST)) {
+
+            $data = Arr::extract($_POST, array('username', 'email', 'password', 'password_confirm'));
+            $data['password'] = Auth::instance()->hash_password($data['password']);
+            $data['password_confirm'] = Auth::instance()->hash_password($data['password_confirm']);
             $user = ORM::factory('user');
+
             try {
-                $user->create_user($data, array('username', 'email', 'password', /* 'language', 'created', 'confirm', 'source' */));
-                $role = ORM::factory('role')->where('name', '=', 'login')->find();
-                $user->add('roles', $role);
-                $data['complate'] = TRUE;
+                if(!$this->checkusername($data)) {
+                     Session::instance()->set('post', $data);
+                     $this->request->redirect('registration');
+                };
+                
+                $result = Model::factory('accaunt')->add_user($data);
+                
             } catch (ORM_Validation_Exception $e) {
                 $errors = $e->errors('auth');
 
@@ -70,12 +76,23 @@ class Controller_User_Account extends Controller_Primary {
                 Session::instance()->set('errors_auth', $errors);
 
                 $data['complate'] = FALSE;
-
-               
             }
             
-             $this->request->redirect('login');
+            Session::instance()->set('post', $data);
+            $this->request->redirect('registration');
         }
+        
+        $data = Session::instance()->get_once('post', array());
+        if(count($data) == 0) {
+            $data['username'] = '';
+            $data['email'] = '';
+        }
+        
+        $this->template->title = __('Register');
+        $this->template->login_box = View::factory('account/register')
+                ->bind('post', $data)
+                ->bind('errors', $errors)
+                ->bind('loginerrors', $loginerrors);
     }
 
     public function action_logout() {
@@ -84,16 +101,25 @@ class Controller_User_Account extends Controller_Primary {
         $this->request->redirect('/');
     }
 
-    public function action_checkusername() {
-        if ($this->request->is_ajax()) {
-            $this->auto_render = FALSE;
+    public function checkusername($data) {
 
-            if (!ORM::factory('user')->unique_key_exists($_POST['username'])) {
-                echo json_encode(array('available' => 1));
-            } else {
-                echo json_encode(array('available' => 0));
-            }
+        $errors = array();
+        $result = TRUE;
+        
+        if (ORM::factory('user')->unique_key_exists($data['username'])) {
+            $errors[] = 'Пользователь с таким ником уже существует!';
+            Session::instance()->set('errors_auth', $errors);
+            $result = false;
         }
+
+        if (ORM::factory('user')->unique_key_exists($data['email'])) {
+            $errors[] = 'Пользователь с таким email уже существует!';
+            Session::instance()->set('errors_auth', $errors);
+            $result = false;
+        }
+        
+        return $result;
+
     }
 
     // validation rule: password != username

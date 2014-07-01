@@ -238,8 +238,6 @@ Route::set('user', 'user<id>', array('id' => '[0-9]+'))
             'action' => 'user',
         ));
 
-
-
 /*
  * РОУТ Cообщения
  */

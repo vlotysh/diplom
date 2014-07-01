@@ -14,6 +14,7 @@ return array(
     'Logout' => 'Вихід',
     'ABOUT' => 'О САЙТІ',
     'FAQ' => 'Допомога',
+    ':field must be a email address' => 'Невирний формат email',
     ':field must be the same as :param2' => 'Паролі не сбігаються',
     ':field must not be empty' => ':поле не повинно бути порожним',
     'user.password.pwdneusr' => 'Не повинно бути таким же...',

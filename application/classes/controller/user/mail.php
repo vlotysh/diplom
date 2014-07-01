@@ -72,7 +72,7 @@ class Controller_User_Mail extends Controller_Application {
      
                     'current_page' => array('source' => 'query_string', 'key' => 'page'), // source: "query_string" or "route"
                     'total_items' => $count,
-                    'items_per_page' => 10,
+                    'items_per_page' => 5,
                     ));
 
         //Инициализация параметров динамической загрузки
@@ -91,16 +91,11 @@ class Controller_User_Mail extends Controller_Application {
                 ->bind('inbox', $inbox)
                 ->bind('privet_ms', $pms)
                 ->bind('pagination', $pagee)
-                ->bind('outbox', $outbox);
-        
-        if ($this->request->is_ajax()) {
-            echo $mail_inbox;
-            exit();
-        } else {
+                ->bind('outbox', $outbox)
+                ->render();
+
             
             $this->template->content = $mail_inbox;
-        }
-
       
     }
 

@@ -15,6 +15,7 @@ return array(
     'Logout' => 'Sign up',
     'ABOUT' => 'ABOUT',
     'FAQ' => 'FAQ',
+    ':field must be a email address' => 'Not valid email',
     ':field must be the same as :param2' => 'Pass word don\'t match',
     ':field must not be empty' => ':field must not be empty',
     'user.password.pwdneusr' => 'Must not be the same...',

@@ -1,11 +1,10 @@
 
-
 <ul class="pm_section">
     <li class="<?=$inbox?>">
-            <a href="<?=  URL::base('').'mail'?>">Входящие</a>
+        <a class="ajax" href="<?=  URL::base('').'mail'?>">Входящие</a>
     </li>
     <li class="<?=$outbox?>">
-        <a href="<?=   URL::base('').'mail/?section=outbox'?>">Исходящие</a>
+        <a class="ajax" href="<?=   URL::base('').'mail/?section=outbox'?>">Исходящие</a>
     </li>
    
     </ul>
@@ -22,39 +21,56 @@
 
 
 <script>
- /*       function changeHash(id) {
+         
+        function changeHash(id) {
 
 try {
-   history.replaceState(null, "",id);
-    window.history.pushState("", "", id); 
+  // history.replaceState(null, "",id);
+    window.history.pushState(id, "", id); 
 }
 catch(e) {
    location.hash = '#id_'+id;
 }
 
 }
+$('a.ajax').on('click',function() {
 
-
-$('a').click(function() {
     
     var href = $(this).attr('href');
     changeHash(href);
    
     
-    $('.cont').load(href);
+   /*  $('.cont').load(href);*/
     $.ajax({  
                 url: href,
                 type: "POST",
                 cache: false,  
                 success: function(res){
-                  
-                   $('.cont').html(res);
+                var data = $.parseJSON(res);
+                   $('.cont').html(data.content);
                    
                 }
 
 })
 
  return false;
-})*/
 
-</script>
+})
+
+window.onpopstate = function(e) {
+    if(e.state != null) {
+        var href = e.state;
+         $.ajax({  
+                url: href,
+                type: "POST",
+                cache: false,  
+                success: function(res){
+                   var data = $.parseJSON(res);
+                   $('.cont').html(data.content);
+                   
+                }
+})
+    }
+}
+
+        </script>
