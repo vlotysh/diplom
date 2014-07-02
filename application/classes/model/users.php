@@ -5,7 +5,7 @@ defined('SYSPATH') or die('No direct script access.');
 class Model_Users extends Model {
     
     public function find_all($limit = 10,$offset = 0) {
-        $query = DB::select('users.id','users.email','users.username','users.avatar','users.last_activity','user_info.fio')
+        $query = DB::select('users.id','users.email','users.username','users.avatar','users.last_activity','users.active','user_info.fio')
                 ->from('users')
                 ->join('user_info')
                 ->on('users.id', '=', 'user_info.user_id')              

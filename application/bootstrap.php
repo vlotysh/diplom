@@ -188,6 +188,14 @@ Kohana::modules(array(
 
 
 
+
+Route::set('activate', 'activate(/<id>)',array('id' => '[a-zA-Z0-9_]+'))
+        ->defaults(array(
+            'directory' => 'user',
+            'controller' => 'account',
+            'action' => 'activate',
+        ));
+
 Route::set('registration', 'registration')
         ->defaults(array(
             'directory' => 'user',

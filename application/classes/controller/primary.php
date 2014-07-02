@@ -11,7 +11,7 @@ class Controller_Primary extends Controller_Template {
         parent::before();
 
         $this->auth = Auth::instance();
-
+               
         //last_activity функция, для проверки на онлайн
 
         if ($this->auto_render) {
@@ -36,6 +36,7 @@ class Controller_Primary extends Controller_Template {
         $this->MailModel = ORM::factory('mail');
 
         $this->template->auth = Auth::instance();
+        $this->template->activate = NUll;
         $this->template->lang = I18n::lang();
         $this->template->content = '';
         $this->template->description = '';

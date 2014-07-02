@@ -51,8 +51,27 @@ function adaptive() {
 }
 
 
-$(document).ready(function() {
+ 
 
+$(document).ready(function() {
+   $('.send_active').click(function () {
+           console.log('11');
+           
+           $.ajax({
+            type: "GET",
+            async: false,
+            url: "/activate",
+            dataType: "json",
+            success: function(result) {
+                $('.progress').hide();
+
+                $('.alert-success').show();
+                $('#content').val('');//ОЧистка формы
+            }
+        })
+        
+        });
+        
     $(".input-append").on("change", "input", function() {
 
         $(".input-append").append('<input type="file" name="file[]" id="file_control">');
@@ -79,7 +98,6 @@ $(document).ready(function() {
 
     $("#send").click(function() { // при нажатии кнопки добавления новой статьи
 
-        console.log('Все ок!');
         var postData = getData('.ms_block');
         $('#text').html('Началось!');
         $('.ms_block').hide();

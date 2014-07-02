@@ -59,12 +59,13 @@ class Controller_User_Account extends Controller_Primary {
             $user = ORM::factory('user');
 
             try {
-                if(!$this->checkusername($data)) {
-                     Session::instance()->set('post', $data);
-                     $this->request->redirect('registration');
+                if (!$this->checkusername($data)) {
+                    Session::instance()->set('post', $data);
+                    $this->request->redirect('registration');
                 };
-                
+
                 $result = Model::factory('accaunt')->add_user($data);
+                $this->action_activateMail($data['email']);
                 
             } catch (ORM_Validation_Exception $e) {
                 $errors = $e->errors('auth');
@@ -77,22 +78,45 @@ class Controller_User_Account extends Controller_Primary {
 
                 $data['complate'] = FALSE;
             }
-            
+
             Session::instance()->set('post', $data);
             $this->request->redirect('registration');
         }
-        
+
         $data = Session::instance()->get_once('post', array());
-        if(count($data) == 0) {
+        if (count($data) == 0) {
             $data['username'] = '';
             $data['email'] = '';
         }
-        
+
         $this->template->title = __('Register');
         $this->template->login_box = View::factory('account/register')
                 ->bind('post', $data)
                 ->bind('errors', $errors)
                 ->bind('loginerrors', $loginerrors);
+    }
+
+    public function action_activate() {
+        $id = $this->request->param('id');
+
+        if ($this->request->is_ajax()) {
+            $email = Auth::instance()->get_user()->email;
+            $result = $this->activateMail($email);
+            if ($result) {
+                echo json_encode('Письмо отправлено заново');
+            } else {
+                echo json_encode('Не получилось отправить письмо подтверждения');
+            }
+            return true;
+        }
+
+        if ($id) {
+            echo $id;
+            $data = '';
+            $result = Model::factory('accaunt')->activate_user($data);
+        }
+
+        $this->template->login_box = View::factory('account/activate');
     }
 
     public function action_logout() {
@@ -101,11 +125,33 @@ class Controller_User_Account extends Controller_Primary {
         $this->request->redirect('/');
     }
 
+    public function activateMail($email) {
+        $config = Kohana::$config->load('email');
+        Email::connect($config);
+        $to = $email;
+        $subject = 'Поздравляем! Вы успешно зарегестрировались!';
+        $from = 'admin@edusystem.in.ua';
+        $token = md5(uniqid());
+        
+        Cookie::set('activet', $token);
+        
+        $str = URL::base('http') . 'activate/' . $token;
+        $message = View::factory('email')->set('content', 'Вы успешно зарагестрированны! Вам требуется активации вашей учетной записи'
+                        . ', для этого пройдите по ссылке <a href="' . $str . '">Активация учетной записи</a>.')->render();
+        $res = Email::send($to, $from, $subject, $message, $html = true);
+
+        if ($res) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
     public function checkusername($data) {
 
         $errors = array();
         $result = TRUE;
-        
+
         if (ORM::factory('user')->unique_key_exists($data['username'])) {
             $errors[] = 'Пользователь с таким ником уже существует!';
             Session::instance()->set('errors_auth', $errors);
@@ -117,9 +163,8 @@ class Controller_User_Account extends Controller_Primary {
             Session::instance()->set('errors_auth', $errors);
             $result = false;
         }
-        
-        return $result;
 
+        return $result;
     }
 
     // validation rule: password != username

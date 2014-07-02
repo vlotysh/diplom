@@ -9,8 +9,6 @@
             <link rel="stylesheet" href="<?php echo url::base(); ?>media/css/<?php echo $style; ?>?v=<?php echo $version;?>" />
         <?php endforeach; ?>
 
-      <!--  <link rel="stylesheet/less" type="text/css" href="<?php echo url::base(); ?>media/css/styles.less">-->
-
         <?php foreach ($scripts as $script) : ?>
             <script src="<?php echo url::base(); ?>media/js/<?php echo $script; ?>.js?v=<?php echo $version;?>" ></script>
         <?php endforeach; ?>
@@ -20,7 +18,7 @@
              alert('no mob!'); 
              }*/
             if (!device.mobile()) {
-                setInterval(updateOnline, 18000);
+                setInterval(updateOnline, 30000);
             }
             $(document).ready(function() {
                 //When page loads...
@@ -52,7 +50,7 @@
     </head>
 
     <body class="metro">
-        <?php if (!$auth->logged_in()): ?>
+        <?php if (!$auth->logged_in() OR $сarentAction == 'activate'): ?>
             <div class="login_wrap"><?php echo$login_box ?></div>
         <?php else: ?>
 
