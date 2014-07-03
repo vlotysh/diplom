@@ -65,7 +65,8 @@ class Controller_User_Account extends Controller_Primary {
                 };
                 
                 if ($_POST['secret_code'] != 121790) {
-                    $errors['code'] = 'Наверный секретный код!';
+                    $errors[] = 'Наверный секретный код!';
+                    Session::instance()->set('errors_auth', $errors);
                     Session::instance()->set('post', $data);
                     $this->request->redirect('registration');
                 }
