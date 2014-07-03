@@ -52,6 +52,15 @@ abstract class Kohana_Controller_Template extends Controller {
         if ($this->auto_render === TRUE) {
             $this->response->body($this->template->render());
         } else {
+            if($this->template->content != '') {
+                 $this->ajax_response['content'] = $this->template->content;
+            }
+            
+            if($this->template->title != '') {
+                 $this->ajax_response['title'] = $this->template->title;
+            }
+        
+            
             $ar2 = array();
             
             foreach ($this->ajax_response as $index => $value) {

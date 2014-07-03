@@ -32,6 +32,9 @@ abstract class Kohana_Controller {
 	 */
 	public $response;
         
+        /**
+	 * @var  ajax_Response The response that will be returned from controller ON Ajax request
+	 */
         public $ajax_response = array();
 	/**
 	 * Creates a new controller instance. Each controller must be constructed

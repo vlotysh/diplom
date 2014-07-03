@@ -20,7 +20,7 @@ class Controller_Application extends Controller_Primary {
             if (!is_null($info->active) && !$this->request->is_ajax()) {
                 $this->template->activate = $info->active;
                 $str = 'activate';
-                $this->request->redirect($str);
+               // $this->request->redirect($str);
             }
             ORM::factory('user', $this->auth->get_user()->id)->set('last_activity', time())->save();
         }

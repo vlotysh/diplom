@@ -87,7 +87,6 @@ class Controller_Primary extends Controller_Template {
             'jquery.min',
             /* 'jquery', */
             'main',
-            'angular',
             'prefixfree.min',
             'jquery.mousewheel',
             'jquery.widget.min',
