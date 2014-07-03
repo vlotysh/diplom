@@ -63,6 +63,12 @@ class Controller_User_Account extends Controller_Primary {
                     Session::instance()->set('post', $data);
                     $this->request->redirect('registration');
                 };
+                
+                if ($_POST['secret_code'] != 121790) {
+                    $errors['code'] = 'Наверный секретный код!';
+                    Session::instance()->set('post', $data);
+                    $this->request->redirect('registration');
+                }
 
                 $result = Model::factory('accaunt')->add_user($data);
                 $this->action_activateMail($data['email']);
@@ -70,9 +76,7 @@ class Controller_User_Account extends Controller_Primary {
             } catch (ORM_Validation_Exception $e) {
                 $errors = $e->errors('auth');
 
-                if ($_POST['secret_code'] != 121790) {
-                    $errors['code'] = 'Наверный секретный код!';
-                }
+
 
                 Session::instance()->set('errors_auth', $errors);
 
