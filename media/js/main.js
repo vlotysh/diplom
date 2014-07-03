@@ -49,13 +49,8 @@ function adaptive() {
      }*/
 
 }
-
-
- 
-
-$(document).ready(function() {
-   $('.send_active').click(function () {
-           console.log('11');
+function activate() {
+              
            
            $.ajax({
             type: "GET",
@@ -69,8 +64,13 @@ $(document).ready(function() {
                 $('#content').val('');//ОЧистка формы
             }
         })
-        
-        });
+}
+
+ 
+
+$(document).ready(function() {
+    
+   
         
     $(".input-append").on("change", "input", function() {
 

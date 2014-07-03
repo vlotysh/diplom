@@ -26,17 +26,12 @@ abstract class Kohana_Controller_Template extends Controller {
 	public function before()
 	{
 		parent::before();
-               
-                if ($this->auto_render === TRUE)
+
+		if ($this->auto_render === TRUE)
 		{
-                    
 			// Load the template
 			$this->template = View::factory($this->template);
 		}
-                
-                  if($this->request->is_ajax()) {
-
-                 }
 	}
 
 	/**
@@ -44,19 +39,11 @@ abstract class Kohana_Controller_Template extends Controller {
 	 */
 	public function after()
 	{
-                
-                $this->auto_render = ! $this->request->is_ajax(); 
-                
 		if ($this->auto_render === TRUE)
-		{ 
-                    $this->response->body($this->template->render());
-                } else {
-                                    $array = array();
-                $array['content'] = $this->template->content;
-                $array['title'] =  $this->template->title;
-                $this->response->body(json_encode($array));
-                }
-             
+		{
+			$this->response->body($this->template->render());
+		}
+
 		parent::after();
 	}
 

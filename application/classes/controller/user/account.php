@@ -106,11 +106,15 @@ class Controller_User_Account extends Controller_Primary {
 
         if ($this->request->is_ajax()) {
             $email = Auth::instance()->get_user()->email;
-            $result = $this->activateMail($email);
+            $result = TRUE;//$this->activateMail($email);
+            
             if ($result) {
-                echo json_encode('Письмо отправлено заново');
+
+            $this->ajax_response = array('response' => 'Письмо отправлено заново');
+               
+
             } else {
-                echo json_encode('Не получилось отправить письмо подтверждения');
+                $this->ajax_response = array('response' => 'Не получилось отправить письмо');
             }
             return true;
         }

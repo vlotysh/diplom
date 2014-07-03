@@ -17,9 +17,13 @@
             /*if(device.windows()) {
              alert('no mob!'); 
              }*/
+    
+    <?php if (!$auth->logged_in() OR $сarentAction != 'activate'): ?>
             if (!device.mobile()) {
                 setInterval(updateOnline, 30000);
             }
+            <?php endif;?>
+                
             $(document).ready(function() {
                 //When page loads...
                 $(".tab_content").hide(); //Hide all content

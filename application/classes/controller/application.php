@@ -17,9 +17,9 @@ class Controller_Application extends Controller_Primary {
 
             $info = Model::factory('users')->getUserById($this->auth->get_user()->id);
             
-            if (!is_null($info->active)) {
+            if (!is_null($info->active) && !$this->request->is_ajax()) {
                 $this->template->activate = $info->active;
-                $str = 'activate/' . md5(uniqid());
+                $str = 'activate';
                 $this->request->redirect($str);
             }
             ORM::factory('user', $this->auth->get_user()->id)->set('last_activity', time())->save();
