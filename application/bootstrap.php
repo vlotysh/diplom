@@ -142,7 +142,7 @@ Session::$default = 'database';
  * Set the default language
  */
 // check cookie first
-$lang = Cookie::get('lang');
+$lang = 'ru';
 
 // if no cookie, rely on accept_language
 if (empty($lang)) {
