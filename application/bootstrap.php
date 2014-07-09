@@ -146,7 +146,7 @@ $lang = Cookie::get('lang');
 
 // if no cookie, rely on accept_language
 if (empty($lang)) {
-    $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+    $lang = 'ru';
 }
 
 // default to en if language not supported or empty
