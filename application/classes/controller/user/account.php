@@ -77,8 +77,6 @@ class Controller_User_Account extends Controller_Primary {
             } catch (ORM_Validation_Exception $e) {
                 $errors = $e->errors('auth');
 
-
-
                 Session::instance()->set('errors_auth', $errors);
 
                 $data['complate'] = FALSE;
@@ -119,9 +117,26 @@ class Controller_User_Account extends Controller_Primary {
         }
 
         if ($id) {
-            echo $id;
-            $data = '';
+            $key = Cookie::get('activet');
+            if($key && $key == $id) {
+            $data = Auth::instance()->get_user();
             $result = Model::factory('accaunt')->activate_user($data);
+                if($result) {
+                $message[] = 'Ваша учетная запись успешно активирована!';
+                Session::instance()->set('message', $message);
+                $url = '/user'.$data->id;
+                $this->request->redirect($url);
+                    }else {
+                 $err[] = 'Произошла ошибка. Отправте запрос на активацию еще раз, пожалуйста.';
+                 Session::instance()->set('errors', $err);
+                 $this->request->redirect('activate');
+                    }
+            } else {
+                $err[] = 'Ваша ссылка активации устаревшая. Отправте запрос на активацию еще раз, пожалуйста.';
+                Session::instance()->set('errors', $err);
+                $this->request->redirect('activate');
+            }
+           
         }
 
         $this->template->login_box = View::factory('account/activate');
@@ -141,7 +156,7 @@ class Controller_User_Account extends Controller_Primary {
         $from = 'admin@edusystem.in.ua';
         $token = md5(uniqid());
         
-        Cookie::set('activet', $token);
+        Cookie::set('activet', $token,21600);
         
         $str = URL::base('http') . 'activate/' . $token;
         $message = View::factory('email')->set('content', 'Вы успешно зарагестрированны! Вам требуется активации вашей учетной записи'

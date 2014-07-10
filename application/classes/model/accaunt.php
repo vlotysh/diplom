@@ -25,6 +25,12 @@ class Model_Accaunt extends Model {
     }
     
     public function activate_user($data) {
+        $result = ORM::factory('user',$data->id)->set('active', 1)->save();
+        if($result) {
+            return TRUE;
+        }else {
+            return FALSE;
+        }
         
     }
 

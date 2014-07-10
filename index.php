@@ -1,5 +1,19 @@
 <?php
 
+
+/*
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+}
+var_dump($ip);exit();
+ *  */
+
+
+
 /*
 $memcache = new Memcache;
 $memcache->connect('localhost', 11211) or die ("Could not connect");

@@ -50,18 +50,14 @@ function adaptive() {
 
 }
 function activate() {
-              
-           
+           $('.send_active').text('...');
            $.ajax({
             type: "GET",
             async: false,
             url: "/activate",
             dataType: "json",
             success: function(result) {
-                $('.progress').hide();
-
-                $('.alert-success').show();
-                $('#content').val('');//ОЧистка формы
+                $('.send_active').text('Проверте свою почту!');   
             }
         })
 }
