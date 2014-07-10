@@ -6,7 +6,7 @@ class Model_Accaunt extends Model {
 
     public function add_user($data) {
         $user = ORM::factory('user'); 
-        $user['active'] = 0;
+        //$user['active'] = 0;
         $id = $user->create_user($data, array('username', 'email', 'password','active'));
         $role = ORM::factory('role')->where('name', '=', 'login')->find();
 

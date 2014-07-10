@@ -63,7 +63,7 @@ class Controller_User_Account extends Controller_Primary {
                     Session::instance()->set('post', $data);
                     $this->request->redirect('registration');
                 };
-                
+
                 if ($_POST['secret_code'] != 121790) {
                     $errors[] = 'Наверный секретный код!';
                     Session::instance()->set('errors_auth', $errors);
@@ -72,7 +72,12 @@ class Controller_User_Account extends Controller_Primary {
                 }
 
                 $result = Model::factory('accaunt')->add_user($data);
-                $this->action_activateMail($data['email']);
+                if($result) {
+                   $this->activateMail($data['email']);
+                   Auth::instance()->force_login($data['email']);
+                }
+                    
+                
                 
             } catch (ORM_Validation_Exception $e) {
                 $errors = $e->errors('auth');
@@ -105,11 +110,10 @@ class Controller_User_Account extends Controller_Primary {
         if ($this->request->is_ajax()) {
             $email = Auth::instance()->get_user()->email;
             $result = $this->activateMail($email);
-            
+
             if ($result) {
 
-            $this->ajax_response = array('response' => 'Письмо отправлено заново');
-
+                $this->ajax_response = array('response' => 'Письмо отправлено заново');
             } else {
                 $this->ajax_response = array('response' => 'Не получилось отправить письмо');
             }
@@ -118,25 +122,24 @@ class Controller_User_Account extends Controller_Primary {
 
         if ($id) {
             $key = Cookie::get('activet');
-            if($key && $key == $id) {
-            $data = Auth::instance()->get_user();
-            $result = Model::factory('accaunt')->activate_user($data);
-                if($result) {
-                $message[] = 'Ваша учетная запись успешно активирована!';
-                Session::instance()->set('message', $message);
-                $url = '/user'.$data->id;
-                $this->request->redirect($url);
-                    }else {
-                 $err[] = 'Произошла ошибка. Отправте запрос на активацию еще раз, пожалуйста.';
-                 Session::instance()->set('errors', $err);
-                 $this->request->redirect('activate');
-                    }
+            if ($key && $key == $id) {
+                $data = Auth::instance()->get_user();
+                $result = Model::factory('accaunt')->activate_user($data);
+                if ($result) {
+                    $message[] = 'Ваша учетная запись успешно активирована!';
+                    Session::instance()->set('message', $message);
+                    $url = '/user' . $data->id;
+                    $this->request->redirect($url);
+                } else {
+                    $err[] = 'Произошла ошибка. Отправте запрос на активацию еще раз, пожалуйста.';
+                    Session::instance()->set('errors', $err);
+                    $this->request->redirect('activate');
+                }
             } else {
                 $err[] = 'Ваша ссылка активации устаревшая. Отправте запрос на активацию еще раз, пожалуйста.';
                 Session::instance()->set('errors', $err);
                 $this->request->redirect('activate');
             }
-           
         }
 
         $this->template->login_box = View::factory('account/activate');
@@ -155,9 +158,9 @@ class Controller_User_Account extends Controller_Primary {
         $subject = 'Поздравляем! Вы успешно зарегестрировались!';
         $from = 'admin@edusystem.in.ua';
         $token = md5(uniqid());
-        
-        Cookie::set('activet', $token,21600);
-        
+
+        Cookie::set('activet', $token, 21600);
+
         $str = URL::base('http') . 'activate/' . $token;
         $message = View::factory('email')->set('content', 'Вы успешно зарагестрированны! Вам требуется активации вашей учетной записи'
                         . ', для этого пройдите по ссылке <a href="' . $str . '">Активация учетной записи</a>.')->render();
