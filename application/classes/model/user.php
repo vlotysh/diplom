@@ -32,7 +32,7 @@ public function rules()
             array(array($this, 'unique'), array('username', ':value')),
         ),
         'password' => array(
-            array('min_length', array(':value', 6)),
+            array('min_length', array(':value', 8)),
             array('not_empty'),
         ),
         'email' => array(

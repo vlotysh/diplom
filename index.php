@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
