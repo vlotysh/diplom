@@ -14,7 +14,7 @@
         
     <? else: ?>
     
-    <p>Сообщение Вам от пользователя: <a href="<?= URL::base()?>user<?=$massege['recipient_id'];?>"><?= $massege['sender_info']['fio']; ?></a></p>     
+    <p>Сообщение Вам от пользователя: <a href="<?= URL::base()?>user<?=$massege['sender_id'];?>"><?= $massege['sender_info']['fio']; ?></a></p>     
         
    <? endif; ?>
 
