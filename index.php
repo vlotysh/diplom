@@ -1,6 +1,54 @@
 <?php
 
 /*
+try {
+ // open connection to MongoDB server
+ $conn = new Mongo('localhost');
+ 
+ // access database
+ $db = $conn->test;
+ 
+ // access collection
+ $collection = $db->items;
+ $item = array(
+  'name' => 'milk',
+  'quantity' => 10,
+  'price' => 2.50,
+  'note' => 'skimmed and extra tasty'
+ );
+ //$collection->insert($item);
+ //echo 'Inserted document with ID: ' . $item['_id'];
+ // execute query
+ // retrieve all documents
+ $cursor = $collection->find();
+ 
+ // iterate through the result set
+ // print each document
+ echo $cursor->count() . ' document(s) found. <br/>'; 
+ foreach ($cursor as $obj) {
+     echo 'Id: ' . $obj['_id'] . '<br/>';
+  echo 'Name: ' . $obj['name'] . '<br/>';
+  echo 'Quantity: ' . $obj['quantity'] . '<br/>';
+  echo 'Price: ' . $obj['price'] . '<br/>';
+   echo 'Note: ' . $obj['note'] . '<br/>';
+  echo '<br/>';
+ }
+ 
+ // disconnect from server
+ $conn->close();
+} catch (MongoConnectionException $e) {
+ die('Error connecting to MongoDB server');
+} catch (MongoException $e) {
+ die('Error: ' . $e->getMessage());
+}
+exit();
+ * 
+ * 
+ * 
+ */
+
+
+/*
 if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
 } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
