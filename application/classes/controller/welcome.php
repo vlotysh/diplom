@@ -18,6 +18,7 @@ class Controller_Welcome extends Controller_Application  {
   
         public function action_language()
 	{
+
 		// requested language
 		$lang = $this->request->param('lg');
                 
