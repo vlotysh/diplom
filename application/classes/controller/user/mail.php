@@ -13,13 +13,19 @@ class Controller_User_Mail extends Controller_Application {
     
     public function action_cachetest() {
            $data = 1111111;
-         if (Cache::instance('memcache')->set('foo', $data, 600))
+           
+         if (Cache::instance('memcache')->get('foo1', FALSE))
 	   {
 	          // Cache was set successfully
              
              
-                  echo Cache::instance('memcache')->get('foo', FALSE);exit();
-	      }
+                  echo Cache::instance('memcache')->get('foo1', FALSE).' Get from MAMCACHE!!' ;exit();
+              }else {
+                  echo ' SET to MAMCACHE!!';
+                  Cache::instance('memcache')->set('foo1', $data, 30);exit();
+                  
+              }
+           
      }
     public function action_email() {
         $config = Kohana::$config->load('email');

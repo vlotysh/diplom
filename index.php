@@ -81,7 +81,7 @@ echo "Data from the cache:<br/>\n";
 var_dump($get_result);
 
 exit();
-
+/*
 */
 /**
  * The directory in which your application specific resources are located.
