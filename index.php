@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 try {
  // open connection to MongoDB server

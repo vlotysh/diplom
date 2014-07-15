@@ -68,7 +68,48 @@
         <div id="dialogboxfoot"></div>
     </div>
 </div>
+<?php
+$url = HTML::urlParser('Ссылки: (http://vk.com), www.hotline.ua, http://rozetka.ua. http://diplom/');
+echo $url.'<br>';
 
+function HumanSize($Bytes)
+{
+  $Type=array("", "kilo", "mega", "giga", "tera", "peta", "exa", "zetta", "yotta");
+  $Index=0;
+  while($Bytes>=1024)
+  {
+    $Bytes/=1024;
+    $Index++;
+  }
+  $str = "". substr($Bytes, 0, 4)." ".$Type[$Index]."bytes";
+   //$str = substr($str, 0, 4);
+  return $str;
+};
+$df_c = disk_free_space(getenv('DOCUMENT_ROOT'));
+$df_f = disk_total_space(getenv('DOCUMENT_ROOT'));
+
+$space_n = $df_f - $df_c;
+$percent = substr($space_n/$df_f,0,4) *100;
+
+
+echo $percent.'% <br>';
+echo 'Свободного  места: '.HumanSize($df_c).'<br>';
+echo 'Занятого места: '.HumanSize($space_n).'<br>';
+echo 'Всего места: '.HumanSize($df_f).'<br>';
+
+$directory = getenv('DOCUMENT_ROOT').'/media/css/';
+$dir = scandir($directory);
+$scanned_directory = array_splice($dir, 2);
+var_dump($scanned_directory);
+//list($dirname,$basename,$extension,$filename) = pathinfo('/index.php');
+var_dump(pathinfo('/index.php'));
+$filename = getenv('DOCUMENT_ROOT').'/media/images/anonimus.jpg';
+echo File::mime(getenv('DOCUMENT_ROOT').'/media/images/anonimus.jpg') . '<br>';
+echo 'Размер файла ' . $filename . ': ' . HumanSize(filesize($filename));
+
+?>
+
+<div style="width: 300px;border: 1px solid #ccc;border-radius: 5px;height: 30px;"><div style="border-radius: 5px 0 0 5px;width: <?=$percent.'%'?>;background-color:red;height: 100%;"></div></div>
 <style>
     #dialogoverlay {
         display: none;

@@ -56,6 +56,42 @@ class HTML extends Kohana_HTML {
         return $date[0] . '&nbsp;' . $m . '&nbsp;' . date('H:i:s', $time);
     }
 
+    public static function urlParser($text) {
+
+        //$text = 'Ссылка: (http://vk.com), www.hotline.ua, http://rozetka.ua.';
+
+       
+
+        function urlCallBack($p) {
+            $name = htmlspecialchars($p[0]);
+
+            $href = !empty($p[1]) ? $name : "http://$name";
+
+            return "<a href=\"$href\" target=\"_blank\">$href</a>";
+        }
+
+        function urlActivate($text) {
+            return preg_replace_callback(
+                    '{
+             (?:
+                (\w+://)
+              |
+                www\.
+              )
+              [\w-]+(\.[\w-]+)*
+              (?: : \d+)?
+              [^<>"\'()\[\]\s]*
+              (?:
+                (?<! [[:punct:]])
+                | (?<= [-/&+*])
+                )
+            }xis', "urlCallBack", $text);
+        }
+        
+         return urlActivate($text);
+
+    }
+
     public static function cyr2lat($cyr_str) {
         $converter = array(
             'а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e', 'ё' => 'e', 'ж' => 'zh', 'з' => 'z',
